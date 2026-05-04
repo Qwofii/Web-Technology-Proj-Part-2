@@ -1,0 +1,439 @@
+/* General Layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Helvetica, sans-serif;
+}
+
+body {
+  background-color: #f9fbfc;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+/* Header & Navigation */
+header {
+  background: #ffffff;
+  border-bottom: 4px solid #27ae60;
+  padding: 10px 5%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+}
+
+.brand-area {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+}
+.logo-placeholder {
+  width: 45px;
+  height: 45px;
+  background: #27ae60;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.brand-name {
+  font-size: 1.3rem;
+color: #1a5c36; /* Contrast Fix */
+}
+
+
+.brand-slogan {
+  font-size: 0.75rem;
+ color: #4b5563; /* Darkened from #7f8c8d for contrast */
+  font-style: italic;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+.nav-links a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #27ae60;
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+/* Hero Banner */
+.hero-banner {
+  background-image:
+    linear-gradient(rgba(44, 62, 80, 0.7), rgba(39, 174, 96, 0.7)),
+    url(../images/content.png);
+  background-size: cover;
+  background-position: center;/* Sinan: "had to use AI to help with background-position"*/
+  background-repeat: no-repeat;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.hero-banner-about {
+  background-image:
+    linear-gradient(rgba(44, 62, 80, 0.7), rgba(39, 174, 96, 0.7)),
+    url(../images/aboutus.png);
+  background-size: cover;
+  background-position: 10% 90%;
+  color: white;
+  padding: 40px 10%;
+  text-align: center;
+  min-height: 490px;
+  justify-content: center;
+  align-items: center;
+  /* Animation */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Search Box */
+.search-container {
+  margin-top: 25px;
+  display: inline-block;
+  background: white;
+  padding: 5px;
+  border-radius: 50px;
+}
+/* Search Box Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.search-container input {
+  padding: 12px 25px;
+  width: 350px;
+  border: none;
+  border-radius: 50px 0 0 50px;
+  outline: none;
+}
+
+.search-container button {
+  padding: 12px 30px;
+  background: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Content & Table */
+.catalog-section {
+  padding: 40px 10%;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+}
+
+.product-table th,
+.product-table td {
+  border: 1px solid #edf2f7;
+  padding: 18px;
+  text-align: left;
+}
+
+.product-table th {
+  background-color: #f1f8f4;
+  color: #1a5c36; /* Contrast Fix */
+}
+
+.category-cell {
+  background-color: #f9f9f9;
+  font-weight: bold;
+  text-align: center;
+}
+
+aside.sidebar {
+  float: right;
+  width: 25%;
+  margin: 3rem;
+  padding: 1rem;
+  border: 1px solid #1a5c36;
+}
+
+h1-white {
+  color: #feffff;
+  margin-bottom: 20px;
+}
+
+h3-jobs {
+  color: #1a5c36;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+/* Footer Section - Updated Background */
+footer {
+  background: #2c3e50; /* Charcoal/Navy from your image */
+  color: #ffffff; /* Text changed to white for readability */
+  padding: 40px 10%;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.footer-links {
+  margin-bottom: 15px;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: underline;
+  margin: 0 5px;
+}
+
+footer p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Apply page CSS styling*/
+
+.applyhero {
+  /* 1. Hero banner on apply page settings*/
+  background-image: linear-gradient(rgb(68, 95, 123), rgb(44, 196, 107));
+  opacity: 100;
+
+  /* 2. Positioning Rules */
+  background-size: cover; /* Scales image to fill the entire section */
+  background-position: center; /* Keeps the middle of the photo visible */
+  background-repeat: no-repeat; /* Prevents the image from tiling */
+
+  /* 3. Sizing the Container */
+  min-height: 50%; /* Ensures the section is tall enough to see the graphic */
+  display: flex; /* Centers your text and search box */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Makes text white to pop against the dark background */
+
+  z-index: 1000;
+  position: sticky;
+  top: 11%;
+}
+
+.apply-sections {
+  /* 1. Colour settings for apply section titles */
+  background-color: #f1f3f4;
+
+  /* 2. Positioning Rules */
+  background-size: cover; /* Scales image to fill the entire section */
+  background-position: center; /* Keeps the middle of the photo visible */
+  background-repeat: no-repeat; /* Prevents the image from tiling */
+
+  /* 3. Sizing the Container */
+  min-height: 10%; /* Ensures the section is tall enough to see the graphic */
+  display: flex; /* Centers your text */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #2c3e50; /* text colour */
+
+  z-index: 999; /* forward positioning of each title section */
+  position: sticky;
+  top: 17%; /* determines how much of the top is visible due to scrolling up/down */
+}
+
+dl {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-top: 30px;
+}
+
+dt {
+  font-weight: bold;
+  color: #27ae60;
+  margin-top: 15px;
+}
+
+dd {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.apply-fields {
+  /* Settings for input fields on apply page */
+
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.apply-element {
+  /* Settings for groups of apply page elemets- title and field typically */
+
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  padding: 10px;
+}
+
+.apply-container {
+  /* Settings for overall sections on apply page */
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto auto;
+  padding: 10px;
+}
+
+textarea {
+  /* settings for display of textarea*/
+
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.apply-buttons {
+  /* Settings for buttons on apply page */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+figure {
+  margin: 40px auto;
+  text-align: center;
+}
+
+figure img {
+  width: 60%;
+  max-width: 400px;
+  border-radius: 10px;
+  background: #dfe6e9;
+  padding: 20px;
+}
+
+figcaption {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 25px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th,
+td {
+  border: 1px solid #edf2f7;
+  padding: 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #f1f8f4;
+  color: #27ae60;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+caption {
+  caption-side: top;
+  font-weight: bold;
+  color: #27ae60;
+  margin-bottom: 10px;
+}
+
+.job-container {
+  display: grid;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: stretch;
+  row-gap: 5px;
+  gap: 2rem;
+ 
+}
+
+.jobs-page{
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.job-card {
+  flex: 1;
+  border: 1px solid #ddd;
+  padding: 1rem;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+.acknowledgement {
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 25px;
+}
