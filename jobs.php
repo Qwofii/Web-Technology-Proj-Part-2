@@ -17,6 +17,25 @@
 
 <!--Ask ai on why link to CSS wasn't work, moved into Head Tag-->
 
+<?php
+require_once 'settings.php';
+$dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
+
+if ($dbconn) {
+
+    $query = "SELECT * FROM jobs";
+    $result = mysqli_query($dbconn, $query);
+    if ($result) {
+         } else {
+        echo "<p>Query failed.</p>";
+    }
+      mysqli_close($dbconn);
+} else {
+    echo "<p>Unable to connect to the db.</p>";
+}
+?>
+
+
 <body>
 
 <!--Navbar, assistance from Group Mates, credit to Sarvesh-->
