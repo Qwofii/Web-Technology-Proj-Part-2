@@ -422,8 +422,20 @@ caption {
 .job-card {
   flex: 1;
   border: 1px solid #ddd;
+  border-left: 6px solid #27ae60;
   padding: 1rem;
 }
+
+.job-tag {
+  display: inline-block;
+  background-color: #1a5c36;
+  color: #d4edda;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+}
+
 
 .copyright {
   font-size: 0.85rem;

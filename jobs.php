@@ -17,24 +17,6 @@
 
 <!--Ask ai on why link to CSS wasn't work, moved into Head Tag-->
 
-<?php
-require_once 'settings.php';
-$dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
-
-if ($dbconn) {
-
-    $query = "SELECT * FROM jobs";
-    $result = mysqli_query($dbconn, $query);
-    if ($result) {
-         } else {
-        echo "<p>Query failed.</p>";
-    }
-      mysqli_close($dbconn);
-} else {
-    echo "<p>Unable to connect to the db.</p>";
-}
-?>
-
 
 <body>
 
@@ -73,13 +55,14 @@ if ($dbconn) {
             <h2>System Analyst</h2>
             <p>Reference Number: <strong>HT001</strong></p>
             <p>Improve and monitor our system activities. Work with users to improve features and test new software</p>
-<p>Full Time | Remote-Friendly or Office work options | $100,000+ salary</p>
+            <span class="job-tag">Full Time</span>
 
 
 
  <section>
             <h3>Salary &amp; Reporting Line</h3>
-            <p>The total remuneration package is between <strong>$100,000 to $110,00 per annum</strong> with Superannuation added </p>
+            <p>The total remuneration package is between <strong>$100,000 to $110,000 per annum</strong> with Superannuation added </p>
+            <p>This role reports to the <strong>Head of Digital Systems</strong>.</p>
 </section>
 
 <section>
@@ -114,12 +97,13 @@ if ($dbconn) {
             <h2>Intergalactic Software Engineer</h2>
             <p>Reference Number: <strong>HT002</strong></p>
             <p>Use your computer science skills in building our major applications while venturing out in space</p>
-<p>Full Time | Space-Station | $150,000+ salary</p>
+            <span class="job-tag">Full Time</span>
 
 
  <section>
             <h3>Salary &amp; Reporting Line</h3>
             <p>The total remuneration package is between <strong>$150,000 to $160,000 per annum</strong> with Superannuation and Health Bonus added </p>
+             <p>This role reports to the <strong>Chief Technology Officer (CTO)</strong> and <strong>Chief Astrology Engineer</strong></p>
 </section>
 
 <section>
