@@ -15,26 +15,27 @@
 </head>
 
 <body>
+    <!-- Dark/Light mode anchor targets (pure CSS method) -->
+    <a id="dark"></a>
+    <a id="light"></a>
     <header>
         <nav class="navbar">
             <div class="brand-area">
-                <a href="https://qwofii.github.io/Web-Technology-Proj/index.html">
+                <a href="index.php">
                 <img src="images/logo.png" alt="NexCare Logo" class="logo-img"></a>
                 <div>
                     <p class="brand-name">NexCare Galactic Services</p>
                     <p class="brand-slogan">Delivering care across the Andromeda Galaxy.</p>
                 </div>
-            </div>
+           </div>
             <ul class="nav-links">
-                <li><a href="https://qwofii.github.io/Web-Technology-Proj/index.html">Home</a></li>
-                <li><a href="https://qwofii.github.io/Web-Technology-Proj/about.html">About</a></li>
-                <li><a href="https://qwofii.github.io/Web-Technology-Proj/jobs.html">Jobs</a></li>
-                <li><a href="https://qwofii.github.io/Web-Technology-Proj/apply.html">Apply</a></li>
-                <li>
-                    <button id="theme-toggle" aria-label="Toggle light/dark mode">
-                        <span class="toggle-icon">🌙</span>
-                        <span class="toggle-label">Dark Mode</span>
-                    </button>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="jobs.php">Jobs</a></li>
+                <li><a href="apply.php">Apply</a></li>
+                            <li>
+                    <a class="theme-switch switch-to-dark"  href="#dark">🌙 Dark Mode</a>
+                    <a class="theme-switch switch-to-light" href="#light">☀️ Light Mode</a>
                 </li>
             </ul>
         </nav>
@@ -133,30 +134,11 @@
 
     <footer>
         <div class="footer-links">
-            <a href="https://webtechprojectsassignment1.atlassian.net/jira/software/projects/SCRUM/boards/1?atlOrigin=eyJpIjoiOTkwOTJiYzI1MDhlNDIyOGI4NDFhN2U3N2QzZDFlYzEiLCJwIjoiaiJ9">Mission Status (Jira)</a> |
-            <a href="https://github.com/Qwofii/Web-Technology-Proj.git">Ship Code (GitHub)</a> |
+            <a href="https://atlassian.net">Mission Status (Jira)</a> |
+            <a href="https://github.com">Ship Code (GitHub)</a> |
             <a href="mailto:106499895@student.swin.edu.au">Contact (support@nexcare.galaxy)</a>
         </div>
         <p style="opacity: 0.85;">&copy; 2026 NexCare Galactic. Milky Way Federation Approved.</p>
     </footer>
-
-    <script>
-        const btn = document.getElementById('theme-toggle');
-        const icon = btn.querySelector('.toggle-icon');
-        const label = btn.querySelector('.toggle-label');
-
-        btn.addEventListener('click', () => {
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            if (isDark) {
-                document.documentElement.removeAttribute('data-theme');
-                icon.textContent = '🌙';
-                label.textContent = 'Dark Mode';
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                icon.textContent = '☀️';
-                label.textContent = 'Light Mode';
-            }
-        });
-    </script>
 </body>
 </html>

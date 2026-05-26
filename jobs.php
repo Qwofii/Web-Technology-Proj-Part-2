@@ -18,12 +18,15 @@
 <!--Ask ai on why link to CSS wasn't work, moved into Head Tag-->
 
 <body>
+    <!-- Dark/Light mode anchor targets (pure CSS method) -->
+    <a id="dark"></a>
+    <a id="light"></a>
 
 <!--Navbar, assistance from Group Mates, credit to Sarvesh-->
    <header>
         <nav class="navbar">
             <div class="brand-area">
-                <a href="https://qwofii.github.io/Web-Technology-Proj/index.html">
+                <a href="index.php">
                 <img src="images/logo.png" alt="NexCare Logo" class="logo-img"></a>
                 <div>
                     <p class="brand-name">NexCare Galactic Services</p>
@@ -31,10 +34,14 @@
                 </div>
             </div>
             <ul class="nav-links">
-                <li><a href="https://qwofii.github.io/Web-Technology-Proj/index.html">Home</a></li>
-                <li><a href="https://qwofii.github.io/Web-Technology-Proj/about.html">About</a></li>
-                <li><a href="https://qwofii.github.io/Web-Technology-Proj/jobs.html">Jobs</a></li>
-                <li><a href="https://qwofii.github.io/Web-Technology-Proj/apply.html">Apply</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="jobs.php">Jobs</a></li>
+                <li><a href="apply.php">Apply</a></li>
+                            <li>
+                    <a class="theme-switch switch-to-dark"  href="#dark">🌙 Dark Mode</a>
+                    <a class="theme-switch switch-to-light" href="#light">☀️ Light Mode</a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -136,7 +143,7 @@
 <aside class="sidebar">
     <h3> Quick Links</h3>
       <ul>
-        <li><a href="https://qwofii.github.io/Web-Technology-Proj/apply.html">How to Apply</a></li>
+        <li><a href="index.php">How to Apply</a></li>
       </ul>
       <h3>Contact HR</h3>
       <p>support@nexcare.galaxy</p>
@@ -147,8 +154,8 @@
 
     <footer>
         <div class="footer-links">
-            <a href="https://webtechprojectsassignment1.atlassian.net/jira/software/projects/SCRUM/boards/1?atlOrigin=eyJpIjoiOTkwOTJiYzI1MDhlNDIyOGI4NDFhN2U3N2QzZDFlYzEiLCJwIjoiaiJ9">Mission Status (Jira)</a> |
-            <a href="https://github.com/Qwofii/Web-Technology-Proj.git">Ship Code (GitHub)</a> |
+            <a href="https://atlassian.net">Mission Status (Jira)</a> |
+            <a href="https://github.com">Ship Code (GitHub)</a> |
             <a href="mailto:106499895@student.swin.edu.au">Contact (support@nexcare.galaxy)</a>
         </div>
         <p style="opacity: 0.85;">&copy; 2026 NexCare Galactic. Milky Way Federation Approved.</p>
