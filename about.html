@@ -30,6 +30,12 @@
                 <li><a href="https://qwofii.github.io/Web-Technology-Proj/about.html">About</a></li>
                 <li><a href="https://qwofii.github.io/Web-Technology-Proj/jobs.html">Jobs</a></li>
                 <li><a href="https://qwofii.github.io/Web-Technology-Proj/apply.html">Apply</a></li>
+                <li>
+                    <button id="theme-toggle" aria-label="Toggle light/dark mode">
+                        <span class="toggle-icon">🌙</span>
+                        <span class="toggle-label">Dark Mode</span>
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -134,5 +140,23 @@
         <p style="opacity: 0.85;">&copy; 2026 NexCare Galactic. Milky Way Federation Approved.</p>
     </footer>
 
+    <script>
+        const btn = document.getElementById('theme-toggle');
+        const icon = btn.querySelector('.toggle-icon');
+        const label = btn.querySelector('.toggle-label');
+
+        btn.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                document.documentElement.removeAttribute('data-theme');
+                icon.textContent = '🌙';
+                label.textContent = 'Dark Mode';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                icon.textContent = '☀️';
+                label.textContent = 'Light Mode';
+            }
+        });
+    </script>
 </body>
 </html>

@@ -437,3 +437,143 @@ caption {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding-bottom: 25px;
 }
+
+/* ============================================
+   DARK MODE
+   Activated by adding data-theme="dark" to <html>
+   ============================================ */
+
+[data-theme="dark"] body {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] header {
+  background: #1e1e1e;
+  border-bottom-color: #1a7a42;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .brand-name {
+  color: #4ade80;
+}
+
+[data-theme="dark"] .brand-slogan {
+  color: #9ca3af;
+}
+
+[data-theme="dark"] .nav-links a {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .nav-links a::after {
+  background: #4ade80;
+}
+
+[data-theme="dark"] .catalog-section {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] h2 {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] dd,
+[data-theme="dark"] strong {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] dt {
+  color: #4ade80;
+}
+
+[data-theme="dark"] dl {
+  background: #2a2a2a;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] figcaption {
+  color: #9ca3af;
+}
+
+[data-theme="dark"] table {
+  background: #2a2a2a;
+}
+
+[data-theme="dark"] th {
+  background-color: #1a3a26;
+  color: #4ade80;
+}
+
+[data-theme="dark"] td {
+  border-color: #333333;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] th {
+  border-color: #333333;
+}
+
+[data-theme="dark"] caption {
+  color: #4ade80;
+}
+
+[data-theme="dark"] .apply-sections {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .job-card {
+  border-color: #444;
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .product-table {
+  background: #2a2a2a;
+}
+
+[data-theme="dark"] .product-table th {
+  background-color: #1a3a26;
+  color: #4ade80;
+}
+
+[data-theme="dark"] .product-table td {
+  border-color: #333;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .category-cell {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+}
+
+/* Toggle button */
+#theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 20px;
+  border: 1.5px solid #ccc;
+  background-color: #ffffff;
+  color: #2c3e50;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s, color 0.25s, border-color 0.25s;
+  white-space: nowrap;
+}
+
+[data-theme="dark"] #theme-toggle {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  border-color: #555;
+}
+
+#theme-toggle:hover {
+  opacity: 0.85;
+}
