@@ -85,7 +85,7 @@
   <li>Written and Communication Skills</li>
 </ul>
 
-<p><strong>Ready to apply for HT001?</strong></p>
+<li><a href="https://qwofii.github.io/Web-Technology-Proj/apply.html">Ready to Apply HT001?</a></li>
 </div>
 
 </div>
