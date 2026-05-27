@@ -32,5 +32,55 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexcare Login</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <!--Navbar from previous project-->
+   <header>
+        <nav class="navbar">
+            <div class="brand-area">
+                <a href="https://qwofii.github.io/Web-Technology-Proj/index.html">
+                <img src="images/logo.png" alt="NexCare Logo" class="logo-img"></a>
+                <div>
+                    <p class="brand-name">NexCare Galactic Services</p>
+                    <p class="brand-slogan">Delivering care across the Andromeda Galaxy.</p>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="https://qwofii.github.io/Web-Technology-Proj/index.html">Home</a></li>
+                <li><a href="https://qwofii.github.io/Web-Technology-Proj/about.html">About</a></li>
+                <li><a href="https://qwofii.github.io/Web-Technology-Proj/jobs.html">Jobs</a></li>
+                <li><a href="https://qwofii.github.io/Web-Technology-Proj/apply.html">Apply</a></li>
+            </ul>
+        </nav>
+    </header>    
+
+<section class="hero banner">
+    <h1>HR Manager Login</h1>
+</section>
+
+<?php if ($error != ""): ?>
+        <p class="error-msg"><?php echo $error; ?></p>
+    <?php endif; ?>
+
+    <form method="post" action="nexcarelogin.php">
+    <label for="username">Username</label>
+    <input type="text" id="username"  name="username" required>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required>
+
+     <button type="submit">Login</button>
+    </form>
+</div>
+
+</body>
+</html>
 
   
