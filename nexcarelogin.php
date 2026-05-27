@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             $error = "Incorrect username or password.";
         }
-
+    // redirects to the manage php page 
         mysqli_close($dbconn);
     } else {
         $error = "Unable to connect to the database.";
