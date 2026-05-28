@@ -7,10 +7,54 @@
     <meta name="keywords" content="About, company, team">
     <meta name="author" content="Sinan, Sophia">
     <title>About Us | NexCare Galactic Healthcare</title>
-    <link rel="stylesheet" href="style/style.css" >
+    <link rel="stylesheet" href="style/style.css">
     <style>
     h2 {
         letter-spacing: 0.5px;
+    }
+    .contributions-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 30px;
+    }
+    .member-card {
+        background: var(--bg-card, #fff);
+        border: 1px solid var(--border, #edf2f7);
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 2px 6px var(--shadow, rgba(0,0,0,0.05));
+    }
+    .member-card h3 {
+        color: var(--text-accent, #27ae60);
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+        text-transform: none;
+        letter-spacing: normal;
+    }
+    .member-card .quote {
+        font-style: italic;
+        color: var(--text-muted, #7f8c8d);
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+        border-left: 3px solid #27ae60;
+        padding-left: 10px;
+    }
+    .member-card .proj-label {
+        font-size: 0.75rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--text-brand, #1a5c36);
+        margin-top: 12px;
+        margin-bottom: 4px;
+    }
+    .member-card p {
+        font-size: 0.92rem;
+        margin: 0;
+    }
+    @media (max-width: 768px) {
+        .contributions-grid { grid-template-columns: 1fr; }
     }
     </style>
 </head>
@@ -34,7 +78,7 @@
                 <li><a href="about.php">About</a></li>
                 <li><a href="jobs.php">Jobs</a></li>
                 <li><a href="apply.php">Apply</a></li>
-                            <li>
+                <li>
                     <a class="theme-switch switch-to-dark"  href="#dark">🌙 Dark Mode</a>
                     <a class="theme-switch switch-to-light" href="#light">☀️ Light Mode</a>
                 </li>
@@ -69,30 +113,41 @@
 
         <section class="catalog-section">
             <h2>Member Contributions and Quotes</h2>
-            
-            <dl> 
-                <dt><strong>Sinan</strong></dt>
-                <dd>Contribution: Designed and developed the user interface of the about page.</dd>
-                <dd>Quote: "zinky zoogle zeep vorp beep beep" (Be sure to take every risk. Embrace your inner alien.)</dd>
 
-                <dt><strong>Sophia</strong></dt>
-                <dd>Contribution: Designed and developed the user interface of the jobs page.</dd>
-                <dd>Quote: "Fais de ta vie un rêve et d'un rêve une réalité." (Make of your life a dream and of a dream a reality.)</dd>
+            <?php
+            $result = $conn->query("SELECT * FROM members ORDER BY id ASC");
 
-                <dt><strong>Aadi</strong></dt>
-                <dd>Contribution: Designed and developed the user interface of the application page.</dd>
-                <dd>Quote: "Wort Wort Wort." (Go! Go! Go!)</dd>
-
-                <dt><strong>Sarvesh</strong></dt>
-                <dd>Contribution: Designed and developed the user interface of the index page.</dd>
-                <dd>Quote: "zip zorp zep zarp zip zurp." (Only through hard work can many things be acomplished.)</dd>
-            </dl>
+            if ($result && $result->num_rows > 0):
+            ?>
+            <div class="contributions-grid">
+                <?php while ($member = $result->fetch_assoc()): ?>
+                <div class="member-card">
+                    <h3><?php echo htmlspecialchars($member['name']); ?></h3>
+                    <div class="quote">
+                        "<?php echo htmlspecialchars($member['quote']); ?>"
+                        <br><em>(<?php echo htmlspecialchars($member['quote_translation']); ?>)</em>
+                    </div>
+                    <div class="proj-label">Project 1 Contribution</div>
+                    <p><?php echo htmlspecialchars($member['proj1_contribution']); ?></p>
+                    <div class="proj-label">Project 2 Contribution</div>
+                    <p><?php echo htmlspecialchars($member['proj2_contribution']); ?></p>
+                </div>
+                <?php endwhile; ?>
+            </div>
+            <?php else: ?>
+                <p style="color:red;">Could not load member data. Please make sure the <strong>members</strong> table exists and is populated.</p>
+            <?php endif; ?>
 
             <figure>
                 <img src="images/banan.jpeg" alt="Team Photo" class="team-photo">
                 <figcaption>a group photo from our own individual planets</figcaption>
             </figure>
 
+            <?php
+            // Rerun query for the fun facts table
+            $result2 = $conn->query("SELECT name, dream_job, coding_snack, hometown FROM members ORDER BY id ASC");
+            if ($result2 && $result2->num_rows > 0):
+            ?>
             <table>
                 <caption>Fun facts about our team!</caption>
                 <thead>
@@ -104,32 +159,18 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php while ($row = $result2->fetch_assoc()): ?>
                     <tr>
-                        <td>Sinan</td>
-                        <td>Intergalactic Typographer</td>
-                        <td>Belgian Chocolate</td>
-                        <td>Melbourne, Australia</td>
+                        <td><?php echo htmlspecialchars($row['name']); ?></td>
+                        <td><?php echo htmlspecialchars($row['dream_job']); ?></td>
+                        <td><?php echo htmlspecialchars($row['coding_snack']); ?></td>
+                        <td><?php echo htmlspecialchars($row['hometown']); ?></td>
                     </tr>
-                    <tr>
-                        <td>Sophia</td>
-                        <td>Alien Interpreter</td>
-                        <td>Something Crunchy</td>
-                        <td>Melbourne, Australia</td>
-                    </tr>
-                    <tr>
-                        <td>Aadi</td>
-                        <td>Game Development Coding</td>
-                        <td>Something Sweet</td>
-                        <td>Melbourne, Australia</td>
-                    </tr>
-                    <tr>
-                        <td>Sarvesh</td>
-                        <td>Independent Entrepreneur</td>
-                        <td>Doritos</td>
-                        <td>Xorblborb</td>
-                    </tr>
+                    <?php endwhile; ?>
                 </tbody>
             </table>
+            <?php endif; ?>
+
         </section>
     </main>
 
