@@ -1,3 +1,4 @@
+<?php require_once 'settings.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,7 +59,7 @@ if ($conn) {
     while ($job = mysqli_fetch_assoc($result)) {
 ?>
 
-<!--job 1-->
+<!--jobs -->
     <div class="jobs-container">
     <div class="job-card">
         <h2><?php echo htmlspecialchars($job['title']); ?></h2>
@@ -93,65 +94,6 @@ if ($conn) {
     mysqli_close($conn);
 }
 ?>
-
-
-<!--job 2-->
-    <div class="jobs-container">
-            
-        <div class="job-card">
-            <h2>Intergalactic Software Engineer</h2>
-            <p>Reference Number: <strong>HT002</strong></p>
-            <p>Use your computer science skills in building our major applications while venturing out in space</p>
-            <span class="job-tag">Full Time</span>
-
-
- <section>
-            <h3>Salary &amp; Reporting Line</h3>
-            <p>The total remuneration package is between <strong>$150,000 to $160,000 per annum</strong> with Superannuation and Health Bonus added </p>
-             <p>This role reports to the <strong>Chief Technology Officer (CTO)</strong> and <strong>Chief Astrology Engineer</strong></p>
-</section>
-
-<section>
-    <h3>Key Responsibilities</h3>
-    <p>As a Intergalactic Software Engineer you will be responsible for:</p>
-    <ol>
-      <li>Creating Major Application projects</li>
-      <li>Collaborating with other species at Space Station to research and create new application technologies</li>
-      <li>Integrating and Complying with National Health Data Standards, including peer code review for all pull requests</li>
-      <li>Improving user experience and testing applications</li>
-    </ol>
-
-</section>
-
-<h3>Essential Requirements</h3>
-<ul>
-  <li>Minimum 2 years of professional developer experience</li> 
-  <li>Meeting ISS requirements set by NASA</li>
-  <li>Fluent in any spoken language from a Alien Species</li>
-  <li>Proficency in React, JavaScript and Node.js</li>
-  <li>Written and Communication Skills</li>
-</ul>
-
-<p><strong>Ready to apply for HT002?</strong></p>
-</div>
-
-</div>
-
- <div class = "jobs-page">
-<main>
-
-<!--Created the aside element but wasn't sure where to place it so I asked AI-->
-<aside class="sidebar">
-    <h3> Quick Links</h3>
-      <ul>
-        <li><a href="https://qwofii.github.io/Web-Technology-Proj/apply.html">How to Apply</a></li>
-      </ul>
-      <h3>Contact HR</h3>
-      <p>support@nexcare.galaxy</p>
-</aside>
-
-</main>
-</div>
 
     <footer>
         <div class="footer-links">
