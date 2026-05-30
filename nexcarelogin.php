@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $result = mysqli_query($dbconn, $query);
         $userRow = mysqli_fetch_assoc($result);
 
+        // redirects to the manage php page 
         if ($userRow) {
             $_SESSION['username'] = $userRow['username'];
             header("Location: manage.php");
@@ -24,14 +25,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             $error = "Incorrect username or password.";
         }
-    // redirects to the manage php page 
+    
         mysqli_close($dbconn);
     } else {
         $error = "Unable to connect to the database.";
     }
 }
 ?>
-  
+<!--phprom the login.php/labs -- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,7 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <?php if ($error != ""): ?>
         <p class="error-msg"><?php echo $error; ?></p>
     <?php endif; ?>
-
     <form method="post" action="nexcarelogin.php">
     <label for="username">Username</label>
     <input type="text" id="username"  name="username" required>
