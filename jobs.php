@@ -48,47 +48,52 @@
 <p>These are the positions that are currently open in our Digital Services Team. Explore the full description of each job and apply online below</p>
 </section>
 
+<?php
+$conn = mysqli_connect($host, $user, $pwd, $sql_db);
+
+if ($conn) {
+    $query = "SELECT * FROM jobs ORDER BY ref_number ASC";
+    $result = mysqli_query($conn, $query);
+    
+    while ($job = mysqli_fetch_assoc($result)) {
+?>
+
 <!--job 1-->
     <div class="jobs-container">
+    <div class="job-card">
+        <h2><?php echo htmlspecialchars($job['title']); ?></h2>
+        <p>Reference Number: <strong><?php echo htmlspecialchars($job['ref_number']); ?></strong></p>
+        <p><?php echo htmlspecialchars($job['summary']); ?></p>
+        <span class="job-tag">Full Time</span>
 
-        <div class="job-card">
-            <h2>System Analyst</h2>
-            <p>Reference Number: <strong>HT001</strong></p>
-            <p>Improve and monitor our system activities. Work with users to improve features and test new software</p>
-            <span class="job-tag">Full Time</span>
-
-
-
- <section>
+        <section>
             <h3>Salary &amp; Reporting Line</h3>
-            <p>The total remuneration package is between <strong>$100,000 to $110,000 per annum</strong> with Superannuation added </p>
-            <p>This role reports to the <strong>Head of Digital Systems</strong>.</p>
-</section>
+            <p>The total remuneration package is between <strong>$<?php echo htmlspecialchars($job['salary_range']); ?> per annum</strong> with <?php echo htmlspecialchars($job['salary_note']); ?>.</p>
+        </section>
 
-<section>
-    <h3>Key Responsibilities</h3>
-    <p>As a System Analyst you will be responsible for:</p>
-    <ol>
-      <li>Creating and Building up a secure portal for users to use</li>
-      <li>Researching and Collaborating with other Species when creating secure web applications</li>
-      <li>Integrating and Complying with National Health Data Standards, including peer code review for all pull requests</li>
-      <li>Monitoring our systems and responding immediately to any errors</li>
-    </ol>
+        <section>
+            <h3>Key Responsibilities</h3>
+            <p>As a <?php echo htmlspecialchars($job['title']); ?> you will be responsible for:</p>
+            <ol>
+                <li><?php echo htmlspecialchars($job['responsibilities']); ?></li>
+            </ol>
+        </section>
 
-</section>
+        <h3>Essential Requirements</h3>
+        <ul>
+            <li><?php echo htmlspecialchars($job['requirements']); ?></li>
+        </ul>
 
-<h3>Essential Requirements</h3>
-<ul>
-  <li>Minimum 2 years of professional developer experience</li> 
-  <li>Fluent in any spoken language from a Alien Species</li>
-  <li>Proficency in React, JavaScript and Node.js</li>
-  <li>Written and Communication Skills</li>
-</ul>
-
-<li><a href="https://qwofii.github.io/Web-Technology-Proj/apply.html">Ready to Apply HT001?</a></li>
+        <p><strong>Ready to apply for <?php echo htmlspecialchars($job['ref_number']); ?>?</strong></p>
+    </div>
 </div>
 
-</div>
+<?php
+    }
+    mysqli_close($conn);
+}
+?>
+
 
 <!--job 2-->
     <div class="jobs-container">
