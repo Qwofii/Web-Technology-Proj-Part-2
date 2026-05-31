@@ -104,6 +104,19 @@ if ($conn) {
 }
 ?>
 
+    <div class="jobs-page">
+    <main>
+        <aside class="sidebar">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="apply.php">How to Apply</a></li>
+            </ul>
+            <h3>Contact HR</h3>
+            <p>support@nexcare.galaxy</p>
+        </aside>
+    </main>
+</div>
+
     <footer>
         <div class="footer-links">
             <a href="https://webtechprojectsassignment1.atlassian.net/jira/software/projects/SCRUM/boards/1?atlOrigin=eyJpIjoiOTkwOTJiYzI1MDhlNDIyOGI4NDFhN2U3N2QzZDFlYzEiLCJwIjoiaiJ9">Mission Status (Jira)</a> |

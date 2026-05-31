@@ -194,11 +194,36 @@ color: #1a5c36; /* Contrast Fix */
 }
 
 aside.sidebar {
-  float: right;
-  width: 25%;
-  margin: 3rem;
-  padding: 1rem;
-  border: 1px solid #1a5c36;
+   float: right;
+    width: 250px;
+    margin: 2rem;
+    padding: 1.5rem;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-left: 6px solid #27ae60;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+  aside.sidebar h3 {
+    color: #1a5c36;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+aside.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside.sidebar a {
+    color: #27ae60;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+aside.sidebar a:hover {
+    text-decoration: underline;
 }
 
 h1-white {
@@ -498,5 +523,7 @@ caption {
 
 .error-msg {
     color: red;
+    text-align: center;
     margin-bottom: 15px;
 }
+
