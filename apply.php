@@ -58,7 +58,7 @@
 
     <form
       method="post"
-      action="http://swin.edu.au"
+      action="process_eoi.php"
     >
       <h2 class="apply-sections">General Details</h2>
       <div class="apply-container">
