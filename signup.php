@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,19 +11,19 @@
 <article>
 <form id="regform" 
       method="post"
-      action="signup.php"
+      action="process.php"
     >
 
-<label for="firstName" >First Name</label>>
+<label for="firstName" >First Name</label>
 <input type="text" name="firstName" required><br>
 
-<label for="lastName" >Last Name</label>>
+<label for="lastName" >Last Name</label>
 <input type="text" name="lastName" required><br>
 
-<label for="email" >Email address</label>>
+<label for="email" >Email address</label>
 <input type="text" name="email" required><br>
 
-<label for="password" >Password</label>>
+<label for="password" >Password</label>
 <input type="text" name="password" required><br>
 
 
@@ -41,3 +42,6 @@
 </div>
 </body>
 </html>
+
+
+

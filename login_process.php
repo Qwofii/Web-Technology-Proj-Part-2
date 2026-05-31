@@ -3,7 +3,8 @@
 session_start();
 
 
-if ($_SERVER["REQURST_METHOD=POST"]== "POST"){
+if ($_SERVER["REQUEST_METHOD=POST"]== "POST"){
+    
 
     require_once("settings.php");
     $conn = mysqli_connect($host, $username, $password, $database);
@@ -19,13 +20,13 @@ if ($_SERVER["REQURST_METHOD=POST"]== "POST"){
     $result = mysqli_query($conn, $query);
     if ($user = mysqli_fetch_assoc($result)){
         $_SESSION["username"] = $user["username"];
-        if ($user["role"] == 'manager'){
+       // if ($user["role"] == "manager"){
+           // header('Location: manage.php');
+           // exit;
+       // } else {
             header('Location: manage.php');
             exit;
-        } else {
-            header('Location: welcome.php');
-            exit;
-        }
+        //}
     }
 } else {
     $_SESSION['error']= 'Invalid username or password. Please try again.';
