@@ -57,6 +57,10 @@ if ($conn) {
     $result = mysqli_query($conn, $query);
     
     while ($job = mysqli_fetch_assoc($result)) {
+        //Converts JSON text back to index arrays
+        $responsibilities = json_decode($job['responsibilities'], true);
+        $requirements = json_decode($job['requirements'], true);
+?>
 ?>
 
 <!--jobs -->
@@ -77,13 +81,17 @@ if ($conn) {
             <h3>Key Responsibilities</h3>
             <p>As a <?php echo htmlspecialchars($job['title']); ?> you will be responsible for:</p>
             <ol>
-                <li><?php echo htmlspecialchars($job['responsibilities']); ?></li>
+                <?php foreach ($responsibilities as $item): ?>
+                    <li><?php echo htmlspecialchars($item); ?></li>
+                <?php endforeach; ?>
             </ol>
         </section>
 
         <h3>Essential Requirements</h3>
         <ul>
-            <li><?php echo htmlspecialchars($job['requirements']); ?></li>
+            <?php foreach ($requirements as $req): ?>
+                <li><?php echo htmlspecialchars($req); ?></li>
+            <?php endforeach; ?>
         </ul>
 
         <p><strong>Ready to apply for <?php echo htmlspecialchars($job['ref_number']); ?>?</strong></p>
