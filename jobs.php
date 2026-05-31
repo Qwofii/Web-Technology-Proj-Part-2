@@ -69,7 +69,8 @@ if ($conn) {
 
         <section>
             <h3>Salary &amp; Reporting Line</h3>
-            <p>The total remuneration package is between <strong>$<?php echo htmlspecialchars($job['salary_range']); ?> per annum</strong> with <?php echo htmlspecialchars($job['salary_note']); ?>.</p>
+            <p>The total remuneration package is between <strong><?php echo htmlspecialchars($job['salary_range']); ?></strong> with <?php echo htmlspecialchars($job['salary_note']); ?>.</p>
+            <p>This role reports to the <strong><?php echo htmlspecialchars($job['reporting_line']); ?></strong>.</p>
         </section>
 
         <section>
