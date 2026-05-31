@@ -32,7 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-<!--phprom the login.php/labs -- 
+
+<!--php is taken from login php from labs -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,13 +64,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </nav>
     </header>    
 
-<section class="hero banner">
+<section class="hero-banner">
     <h1>HR Manager Login</h1>
 </section>
 
 <?php if ($error != ""): ?>
         <p class="error-msg"><?php echo $error; ?></p>
     <?php endif; ?>
+<div class="login-container">
     <form method="post" action="nexcarelogin.php">
     <label for="username">Username</label>
     <input type="text" id="username"  name="username" required>
