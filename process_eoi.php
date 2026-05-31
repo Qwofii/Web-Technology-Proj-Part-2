@@ -36,8 +36,8 @@ $errors = [];
 // jobref validation
 if (empty($jobRef)) {
     $errors[] = 'Job reference is required.';
-} elseif (!preg_match('/^[A-Z]{2}\d{4}$/', $jobRef)) {
-    $errors[] = 'Job reference must be in the format: two uppercase letters followed by four digits (e.g., AB1234).';
+} elseif (!preg_match('/^[A-Za-z0-9]{5}$/', $jobRef)) {
+    $errors[] = 'Job reference must be exactly 5 alphanumeric characters (e.g., HT001).';
 }
 
 
@@ -78,8 +78,8 @@ if (empty($gender)) {
 }
 
 // address validation
-if (empty($street)) {
-    $errors[] = 'Street addressis required.';
+if (empty($streetAddress)) {
+    $errors[] = 'Street address is required.';
 }
 
 if (empty($suburb)) {
