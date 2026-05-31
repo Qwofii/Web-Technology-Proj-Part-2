@@ -128,10 +128,16 @@ $stmt = $conn->prepare("INSERT INTO eoi (jobRef, firstName, lastName, dateOfBirt
 $stmt->bind_param("sssssssssssss", $jobRef, $firstName, $lastName, $dateOfBirth, $gender, $street, $suburb, $state, $postcode, $email, $phone, $skills, $otherSkills);
 
 if ($stmt->execute()) {
-    echo "<h2>Application submitted successfully!</h2><p><a href=\"apply.php\">Submit another application</a></p>";
+    $eoiNumber = $stmt->insert_id;
+    echo "<h2>Expression of Interest Submitted</h2>";
+    echo "<p>Your EOInumber is: <strong>" . htmlspecialchars($eoiNumber) . "</strong></p>";
+    echo "<p>Status: <strong>New</strong></p>";
+    echo "<p>Thank you, " . htmlspecialchars($firstName) . " " . htmlspecialchars($lastName) . ".</p>";
+    echo "<p><a href=\"apply.php\">Submit another EOI</a></p>";
 } else {
-    echo "<h2>Error submitting application: " . $stmt->error . "</h2><p><a href=\"apply.php\">Go back to the application form</a></p>";
+    echo "Error saving your EOI: " . htmlspecialchars($stmt->error);
 }
+
 $stmt->close();
 $conn->close();
 ?>
