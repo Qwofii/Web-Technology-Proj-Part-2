@@ -19,7 +19,7 @@ $firstName = clean_input($_POST['firstName']);
 $lastName = clean_input($_POST['lastName']);
 $dateOfBirth = clean_input($_POST['dateOfBirth']);
 $gender = clean_input($_POST['gender']);
-$street = clean_input($_POST['streetAddress']);
+$streetAddress = clean_input($_POST['streetAddress']);
 $suburb = clean_input($_POST['suburb']);
 $state = clean_input($_POST['state']);
 $postcode = clean_input($_POST['postcode']);
@@ -36,8 +36,8 @@ $errors = [];
 // jobref validation
 if (empty($jobRef)) {
     $errors[] = 'Job reference is required.';
-} elseif (!preg_match('/^[A-Za-z0-9]{5}$/', $jobRef)) {
-    $errors[] = 'Job reference must be exactly 5 alphanumeric characters (e.g., HT001).';
+} elseif (!preg_match('/^[A-Za-z0-9]{6}$/', $jobRef)) {
+    $errors[] = 'Job reference must be exactly 6 alphanumeric characters (e.g., NEX101).';
 }
 
 
@@ -125,7 +125,7 @@ if (!empty($errors)) {
 
 // store user input in eoi db
 $stmt = $conn->prepare("INSERT INTO eoi (jobRef, firstName, lastName, dateOfBirth, gender, streetAddress, suburb, state, postcode, email, phone, skills, otherSkills) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssssssssss", $jobRef, $firstName, $lastName, $dateOfBirth, $gender, $street, $suburb, $state, $postcode, $email, $phone, $skills, $otherSkills);
+$stmt->bind_param("sssssssssssss", $jobRef, $firstName, $lastName, $dateOfBirth, $gender, $streetAddress, $suburb, $state, $postcode, $email, $phone, $skills, $otherSkills);
 
 if ($stmt->execute()) {
     $eoiNumber = $stmt->insert_id;

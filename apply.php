@@ -29,7 +29,7 @@
     <!-- Dark/Light mode anchor targets (pure CSS method) -->
     <a id="dark"></a>
     <a id="light"></a>
-
+    
     <?php include 'header.inc'; ?>
 
     <div class="applyhero">
