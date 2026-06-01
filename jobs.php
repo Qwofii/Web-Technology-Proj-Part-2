@@ -50,7 +50,7 @@
 </section>
 
 <?php
-$conn = mysqli_connect($host, $user, $pwd, $sql_db);
+$conn = mysqli_connect($host, $user, $pass, $dbname);
 
 if ($conn) {
     $query = "SELECT * FROM jobs ORDER BY ref_number ASC";
