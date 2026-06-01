@@ -1,3 +1,4 @@
+<?php require_once 'settings.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,11 +17,13 @@
     </style>
 </head>
 <body>
-
-  <header>
+    <!-- Dark/Light mode anchor targets (pure CSS method) -->
+    <a id="dark"></a>
+    <a id="light"></a>
+    <header>
         <nav class="navbar">
             <div class="brand-area">
-                <a href="https://qwofii.github.io/Web-Technology-Proj/index.html">
+                <a href="index.php">
                 <img src="images/logo.png" alt="NexCare Logo" class="logo-img"></a>
                 <div>
                     <p class="brand-name">NexCare Galactic Services</p>
@@ -28,10 +31,14 @@
                 </div>
             </div>
             <ul class="nav-links">
-                <li><a href="https://qwofii.github.io/Web-Technology-Proj/index.html">Home</a></li>
-                <li><a href="https://qwofii.github.io/Web-Technology-Proj/about.html">About</a></li>
-                <li><a href="https://qwofii.github.io/Web-Technology-Proj/jobs.html">Jobs</a></li>
-                <li><a href="https://qwofii.github.io/Web-Technology-Proj/apply.html">Apply</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="jobs.php">Jobs</a></li>
+                <li><a href="apply.php">Apply</a></li>
+                            <li>
+                    <a class="theme-switch switch-to-dark"  href="#dark">🌙 Dark Mode</a>
+                    <a class="theme-switch switch-to-light" href="#light">☀️ Light Mode</a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -83,12 +90,11 @@
                 <p>We at Nexcare acknowledge the Aboriginal and Torres Strait Islanders and the traditional custodians of the lands on which we work and learn, and we pay our respects to Elders past and present.</p>
             </div>
         <div class="footer-links">
-            <a href="https://webtechprojectsassignment1.atlassian.net/jira/software/projects/SCRUM/boards/1?atlOrigin=eyJpIjoiOTkwOTJiYzI1MDhlNDIyOGI4NDFhN2U3N2QzZDFlYzEiLCJwIjoiaiJ9">Mission Status (Jira)</a> |
-            <a href="https://github.com/Qwofii/Web-Technology-Proj.git">Ship Code (GitHub)</a> |
+            <a href="https://atlassian.net">Mission Status (Jira)</a> |
+            <a href="https://github.com">Ship Code (GitHub)</a> |
             <a href="mailto:106499895@student.swin.edu.au">Contact (support@nexcare.galaxy)</a>
         </div>
         <p style="opacity: 0.85;">&copy; 2026 NexCare Galactic. Milky Way Federation Approved.</p>
     </footer>
-
 </body>
 </html>
