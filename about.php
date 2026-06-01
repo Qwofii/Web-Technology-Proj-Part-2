@@ -115,12 +115,12 @@
             <h2>Member Contributions and Quotes</h2>
 
             <?php
-            $result = $conn->query("SELECT * FROM members ORDER BY id ASC");
+            $result = mysqli_query($conn, "SELECT * FROM members ORDER BY member_id ASC");
 
-            if ($result && $result->num_rows > 0):
+            if ($result && mysqli_num_rows($result) > 0):
             ?>
             <div class="contributions-grid">
-                <?php while ($member = $result->fetch_assoc()): ?>
+                <?php while ($member = mysqli_fetch_assoc($result)): ?>
                 <div class="member-card">
                     <h3><?php echo htmlspecialchars($member['name']); ?></h3>
                     <div class="quote">
@@ -145,8 +145,8 @@
 
             <?php
             // Rerun query for the fun facts table
-            $result2 = $conn->query("SELECT name, dream_job, coding_snack, hometown FROM members ORDER BY id ASC");
-            if ($result2 && $result2->num_rows > 0):
+            $result2 = mysqli_query($conn, "SELECT name, dream_job, coding_snack, hometown FROM members ORDER BY member_id ASC");
+            if ($result2 && mysqli_num_rows($result2) > 0):
             ?>
             <table>
                 <caption>Fun facts about our team!</caption>
@@ -159,7 +159,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php while ($row = $result2->fetch_assoc()): ?>
+                    <?php while ($row = mysqli_fetch_assoc($result2)): ?>
                     <tr>
                         <td><?php echo htmlspecialchars($row['name']); ?></td>
                         <td><?php echo htmlspecialchars($row['dream_job']); ?></td>

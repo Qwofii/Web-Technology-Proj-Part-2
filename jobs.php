@@ -42,13 +42,14 @@
 </div>
 
 <?php
-$conn = mysqli_connect($host, $user, $pass, $dbname);
-
 if ($conn) {
     $search = isset($_GET['search']) ? mysqli_real_escape_string($conn, $_GET['search']) : '';
     $query = "SELECT * FROM jobs WHERE title LIKE '%$search%' OR ref_number LIKE '%$search%' ORDER BY ref_number ASC";
     $result = mysqli_query($conn, $query);
-    
+
+      if (!$result) {
+        die("Query failed: " . mysqli_error($conn));
+    }    
     while ($job = mysqli_fetch_assoc($result)) {
         //Converts JSON text back to index arrays, assistance from AI
         $responsibilities = json_decode($job['responsibilities'], true);
@@ -96,7 +97,7 @@ if ($conn) {
 }
 ?>
 
-    <div class="jobs-page">
+    <div class="jobs-page" style="overflow: hidden; min-height: 100px; margin-bottom: 50px;">
     <main>
         <aside class="sidebar">
             <h3>Quick Links</h3>
