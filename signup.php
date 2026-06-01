@@ -1,12 +1,29 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['username'])) {
+} else if ($_SESSION['role'] == "manager"){
+    header("Location: manage.php");
+    exit();
+} else if ($_SESSION['role'] == "user"){
+    header("Location: welcome.php");
+    exit();
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php include 'header.inc'; ?>
-   
+<?php include 'header_loggedout.inc'; ?>
+<link rel="stylesheet" href="style/style.css">
 </head>
 
 <body>
 
+<div class="login-container">
 <article>
 <form id="signup" 
       method="post"
@@ -34,7 +51,7 @@
 
 </form>
 
-
+</div>
 
 
 </article>

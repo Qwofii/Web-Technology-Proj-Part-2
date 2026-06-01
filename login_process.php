@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD']== 'POST'){
             if (password_verify($input_password, $user['password'])) {
  
                 $_SESSION['username'] = $user['username'];
+                $_SESSION['role'] = $user['role'];
                 if ($user["role"] == "manager"){
                     header('Location: manage.php');
                     exit;
@@ -37,19 +38,19 @@ if ($_SERVER['REQUEST_METHOD']== 'POST'){
                 }
             } else {
                 echo "Invalid username or password. Please try again";
-                //header('Location: login.php');
+                header('Location: login.php');
             }
         } else {
              $_SESSION['error']= 'Invalid username or password. Please try again.';
              echo "Invalid username or password. Please try again";
-            // header('Location: login.php');
+            header('Location: login.php');
         }   
     }
      
 } else {
     $_SESSION['error']= 'Please log in.';
     echo "<p> Please log in first. </p>";
-    //header('Location: login.php');
+    header('Location: login.php');
     exit;
     
 }
