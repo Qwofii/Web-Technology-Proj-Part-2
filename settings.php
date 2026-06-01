@@ -1,8 +1,8 @@
 <?php
 
 $host = "localhost";
-$user = "root";
-$pwd = "";
-$sql_db = "nexcare_db"; 
+$username = "root";
+$password = "";
+$database = "nexcare_db"; 
 
 ?>

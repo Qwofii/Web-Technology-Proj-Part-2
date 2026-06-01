@@ -8,7 +8,7 @@
 <body>
 
 <article>
-<form id="regform" 
+<form id="login" 
       method="post"
       action="login_process.php"
     >
@@ -21,8 +21,6 @@
 
 <a href= "signup.php"> Don't have an account yet?</a>
 
-
-<input type="hidden" name="token" value="abc123" >
 <input type="submit" value = "Login">
 
 </form>
