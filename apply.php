@@ -45,11 +45,8 @@
           <input
             class="apply-fields"
             type="text"
-            pattern="[A-Za-z0-9]{5}"
             name="jobRef"
             id="jobRef"
-            maxlength="5"
-            size="10"
             required="required">
         </div>
         <br>
@@ -59,11 +56,8 @@
           <input
             class="apply-fields"
             type="text"
-            pattern="[A-Za-z]{1,20}"
             name="firstName"
             id="firstName"
-            maxlength="20"
-            size="25"
             required="required">
         </div>
 
@@ -72,11 +66,8 @@
           <input
             class="apply-fields"
             type="text"
-            pattern="[A-Za-z]{1,20}"
             name="lastName"
             id="lastName"
-            maxlength="20"
-            size="25"
             required="required">
         </div>
 
@@ -125,8 +116,6 @@
             type="text"
             name="streetAddress"
             id="streetAddress"
-            maxlength="40"
-            size="40"
             required="required">
         </div>
         <div class="apply-element">
@@ -136,8 +125,6 @@
             type="text"
             name="suburb"
             id="suburb"
-            maxlength="40"
-            size="40"
             required="required">
         </div>
 
@@ -161,11 +148,8 @@
           <input
             class="apply-fields"
             type="text"
-            pattern="\d{4}"
             name="postcode"
             id="postcode"
-            size="4"
-            maxlength="4"
             required="required">
         </div>
 
@@ -174,10 +158,8 @@
           <input
             class="apply-fields"
             type="text"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]{2,}\.[a-z]{2,}$"
             name="email"
             id="email"
-            size="20"
             required="required">
         </div>
         <div class="apply-element">
@@ -185,11 +167,8 @@
           <input
             class="apply-fields"
             type="text"
-            pattern="\d{8,12}"
             name="phone"
             id="phone"
-            maxlength="12"
-            size="12"
             placeholder="0400000000"
             required="required">
         </div>
