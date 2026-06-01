@@ -58,7 +58,11 @@
 
     <form
       method="post"
+<<<<<<< HEAD
       action="process_eoi.php"
+=======
+      action="http://swin.edu.au"
+>>>>>>> sarvesh
     >
       <h2 class="apply-sections">General Details</h2>
       <div class="apply-container">
@@ -276,5 +280,13 @@
         </div>
         <p style="opacity: 0.85;">&copy; 2026 NexCare Galactic. Milky Way Federation Approved.</p>
     </footer>
+<<<<<<< HEAD
 </body>
+=======
+<<<<<<<< HEAD:apply.html
+  </body>
+========
+</body>
+>>>>>>>> sarvesh:apply.php
+>>>>>>> sarvesh
 </html>
