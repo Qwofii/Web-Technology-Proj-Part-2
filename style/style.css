@@ -194,11 +194,36 @@ color: #1a5c36; /* Contrast Fix */
 }
 
 aside.sidebar {
-  float: right;
-  width: 25%;
-  margin: 3rem;
-  padding: 1rem;
-  border: 1px solid #1a5c36;
+   float: right;
+    width: 250px;
+    margin: 2rem;
+    padding: 1.5rem;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-left: 6px solid #27ae60;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+  aside.sidebar h3 {
+    color: #1a5c36;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+aside.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside.sidebar a {
+    color: #27ae60;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+aside.sidebar a:hover {
+    text-decoration: underline;
 }
 
 h1-white {
@@ -422,8 +447,24 @@ caption {
 .job-card {
   flex: 1;
   border: 1px solid #ddd;
-  padding: 1rem;
+  border-left: 6px solid #27ae60;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 20px 10%;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05)
 }
+
+.job-tag {
+  display: inline-block;
+  background-color: #1a5c36;
+  color: #d4edda;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+}
+
 
 .copyright {
   font-size: 0.85rem;
@@ -437,3 +478,52 @@ caption {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding-bottom: 25px;
 }
+
+.login-container {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 2rem;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-left: 6px solid #27ae60;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.login-container h2 {
+    color: #1a5c36;
+    margin-bottom: 20px;
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background: #1a5c36;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.error-msg {
+    color: red;
+    text-align: center;
+    margin-bottom: 15px;
+}
+

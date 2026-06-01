@@ -21,9 +21,17 @@ if (!isset($_SESSION['username'])) {
    
 </head>
 
+<section class="hero-banner">
+    <h1>Log in</h1>
+</section>
+
 <body>
 
-<article>
+<?php if ($error != ""): ?>
+        <p class="error-msg"><?php echo $error; ?></p>
+    <?php endif; ?>
+<div class="login-container">
+
 <form id="login" 
       method="post"
       action="login_process.php"
@@ -40,11 +48,10 @@ if (!isset($_SESSION['username'])) {
 <input type="submit" value = "Login">
 
 </form>
+</div>
 
 
 
-
-</article>
 
 <div>
     <?php include 'footer.inc'; ?>
