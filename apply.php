@@ -29,28 +29,8 @@
     <!-- Dark/Light mode anchor targets (pure CSS method) -->
     <a id="dark"></a>
     <a id="light"></a>
-   <header>
-        <nav class="navbar">
-            <div class="brand-area">
-              <a href="index.php">
-                <img src="images/logo.png" alt="NexCare Logo" class="logo-img"></a>
-                <div>
-                    <p class="brand-name">NexCare Galactic Services</p>
-                    <p class="brand-slogan">Delivering care across the Andromeda Galaxy.</p>
-                </div>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="about.php">About</a></li>
-                <li><a href="jobs.php">Jobs</a></li>
-                <li><a href="apply.php">Apply</a></li>
-                            <li>
-                    <a class="theme-switch switch-to-dark"  href="#dark">🌙 Dark Mode</a>
-                    <a class="theme-switch switch-to-light" href="#light">☀️ Light Mode</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+
+    <?php include 'header.inc'; ?>
 
     <div class="applyhero">
       <h1>Apply</h1>
@@ -246,14 +226,7 @@
         <input type="reset" value="Reset form" class="button">
       </div>
     </form>
-   
-    <footer>
-        <div class="footer-links">
-            <a href="https://atlassian.net">Mission Status (Jira)</a> |
-            <a href="https://github.com">Ship Code (GitHub)</a> |
-            <a href="mailto:106499895@student.swin.edu.au">Contact (support@nexcare.galaxy)</a>
-        </div>
-        <p style="opacity: 0.85;">&copy; 2026 NexCare Galactic. Milky Way Federation Approved.</p>
-    </footer>
+    
+      <?php include 'footer.inc'; ?>
 </body>
 </html>
