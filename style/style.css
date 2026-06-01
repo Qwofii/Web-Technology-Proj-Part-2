@@ -205,27 +205,6 @@ aside.sidebar {
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-  aside.sidebar h3 {
-    color: #1a5c36;
-    margin-bottom: 10px;
-    margin-top: 15px;
-}
-
-aside.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-aside.sidebar a {
-    color: #27ae60;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-aside.sidebar a:hover {
-    text-decoration: underline;
-}
-
 h1-white {
   color: #feffff;
   margin-bottom: 20px;

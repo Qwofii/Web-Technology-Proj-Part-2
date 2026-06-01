@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2026 at 10:42 AM
+-- Generation Time: Jun 01, 2026 at 04:33 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `nexcare_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `eoi`
+--
+
+CREATE TABLE `eoi` (
+  `EOInumber` int(11) NOT NULL,
+  `jobRef` varchar(5) DEFAULT NULL,
+  `firstName` varchar(20) DEFAULT NULL,
+  `lastName` varchar(20) DEFAULT NULL,
+  `dateOfBirth` date DEFAULT NULL,
+  `gender` varchar(20) DEFAULT NULL,
+  `streetAddress` varchar(40) DEFAULT NULL,
+  `suburb` varchar(40) DEFAULT NULL,
+  `state` varchar(3) DEFAULT NULL,
+  `postcode` varchar(4) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `phone` varchar(12) DEFAULT NULL,
+  `skills` text DEFAULT NULL,
+  `otherSkills` text DEFAULT NULL,
+  `status` enum('New','Current','Final') DEFAULT 'New'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -74,6 +98,12 @@ INSERT INTO `users` (`user_id`, `username`, `password`) VALUES
 --
 
 --
+-- Indexes for table `eoi`
+--
+ALTER TABLE `eoi`
+  ADD PRIMARY KEY (`EOInumber`);
+
+--
 -- Indexes for table `jobs`
 --
 ALTER TABLE `jobs`
@@ -89,6 +119,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `eoi`
+--
+ALTER TABLE `eoi`
+  MODIFY `EOInumber` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `jobs`
