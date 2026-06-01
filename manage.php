@@ -1,6 +1,15 @@
-<? php
+<?php
 require_once("settings.php");
-$_SESSION['username'] = $user['username'];
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+} else if ($_SESSION['role'] == "manager"){
+} else if ($_SESSION['role'] == "user"){
+    header("Location: welcome.php");
+    exit();
+}
 
 ?>
 
