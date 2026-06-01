@@ -100,7 +100,7 @@ if ($conn) {
     </main>
 </div>
 
-<!-- navbar -->
+<!-- footer -->
 <?php include 'footer.inc'; ?>   
 
 </body>
