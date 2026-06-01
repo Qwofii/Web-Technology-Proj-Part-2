@@ -32,6 +32,10 @@
 <p>These are the positions that are currently open in our Digital Services Team. Explore the full description of each job and apply online below</p>
 </section>
 
+<!-- Search bar - Uses the 'get' method to send the term to a URL parameter (e.g. Jobs.php search= analyst) 
+ PHP uses LIKE in the sql query to find matches in the title and ref_numbers   
+-->
+
 <div style="text-align:center; padding: 20px;">
     <form method="get" action="jobs.php">
         <input type="text" name="search" placeholder="Search jobs..." 
@@ -96,7 +100,7 @@ if ($conn) {
 }
 ?>
 
-    <div class="jobs-page">
+<div class="jobs-page" style="overflow: hidden; min-height: 100px; margin-bottom: 50px;">
     <main>
         <aside class="sidebar">
             <h3>Quick Links</h3>
