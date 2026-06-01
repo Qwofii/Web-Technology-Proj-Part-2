@@ -5,8 +5,9 @@ session_start();
 
    
 if ($_SERVER['REQUEST_METHOD']== 'POST'){
+
      require_once("settings.php");
-   
+
     $conn = mysqli_connect($host, $username, $password, $database);
     
     
@@ -36,20 +37,19 @@ if ($_SERVER['REQUEST_METHOD']== 'POST'){
                 }
             } else {
                 echo "Invalid username or password. Please try again";
-                header('Location: login.php');
-        }
+                //header('Location: login.php');
             }
         } else {
              $_SESSION['error']= 'Invalid username or password. Please try again.';
              echo "Invalid username or password. Please try again";
-             header('Location: login.php');
-        }
+            // header('Location: login.php');
+        }   
     }
      
 } else {
     $_SESSION['error']= 'Please log in.';
     echo "<p> Please log in first. </p>";
-    header('Location: login.php');
+    //header('Location: login.php');
     exit;
     
 }

@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD']== 'POST'){
    // $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
     //$stmt->bind_param("ss", $input_username, $hashed_password);
     //$stmt->execute();
-   
+   //??? Need to bind param!!!
     
     if ($result){
     

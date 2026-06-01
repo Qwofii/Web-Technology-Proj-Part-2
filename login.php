@@ -1,7 +1,23 @@
+<? php
+
+$_SESSION['username'] = $user['username'];
+
+session_start();
+if (!isset($_SESSION['username'])) {
+  header("Location: login.php");
+  exit();
+} else if $user['role'] == "manager" {
+    header("Location: manage.php");
+} else {
+     header("Location: welcome.php");
+} 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php include 'header.inc'; ?>
+<?php include 'header_loggedout.inc'; ?>
+<link rel="stylesheet" href="style/style.css">
    
 </head>
 

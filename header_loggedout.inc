@@ -13,6 +13,7 @@
                 <li><a href="https://qwofii.github.io/Web-Technology-Proj/about.html">About</a></li>
                 <li><a href="https://qwofii.github.io/Web-Technology-Proj/jobs.html">Jobs</a></li>
                 <li><a href="https://qwofii.github.io/Web-Technology-Proj/apply.html">Apply</a></li>
+                <li><a href="login.php">Log in</a></li>
             </ul>
         </nav>
     </header>
