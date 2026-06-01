@@ -332,7 +332,7 @@ dt {
 :root {
   --bg:            #f9fbfc;
   --bg-nav:        #ffffff;
-  --bg-card:       #ffffff;
+  --bg-card:       #ffffff;width: ;
   --bg-input:      #ffffff;
   --bg-th:         #f1f8f4;
   --text:          #2c3e50;
