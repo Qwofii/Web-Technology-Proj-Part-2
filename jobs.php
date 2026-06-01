@@ -32,18 +32,27 @@
 <p>These are the positions that are currently open in our Digital Services Team. Explore the full description of each job and apply online below</p>
 </section>
 
+<div style="text-align:center; padding: 20px;">
+    <form method="get" action="jobs.php">
+        <input type="text" name="search" placeholder="Search jobs..." 
+               value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>"
+               style="padding: 10px; width: 300px; border-radius: 5px; border: 1px solid #ddd;">
+        <button type="submit" style="padding: 10px 20px; background: #1a5c36; color: white; border: none; border-radius: 5px; cursor: pointer;">Search</button>
+    </form>
+</div>
+
 <?php
 $conn = mysqli_connect($host, $user, $pass, $dbname);
 
 if ($conn) {
-    $query = "SELECT * FROM jobs ORDER BY ref_number ASC";
+    $search = isset($_GET['search']) ? mysqli_real_escape_string($conn, $_GET['search']) : '';
+    $query = "SELECT * FROM jobs WHERE title LIKE '%$search%' OR ref_number LIKE '%$search%' ORDER BY ref_number ASC";
     $result = mysqli_query($conn, $query);
     
     while ($job = mysqli_fetch_assoc($result)) {
         //Converts JSON text back to index arrays, assistance from AI
         $responsibilities = json_decode($job['responsibilities'], true);
         $requirements = json_decode($job['requirements'], true);
-?>
 ?>
 
 <!--jobs -->

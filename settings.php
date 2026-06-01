@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 $host = "localhost";
 $user = "root";
 $pass = ""; 
@@ -11,12 +10,3 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 ?>
-=======
-
-$host = "localhost";
-$user = "root";
-$pwd = "";
-$sql_db = "exhibition_db"; 
-
-?>
->>>>>>> sarvesh
