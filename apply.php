@@ -27,8 +27,30 @@
 
   <body>
     <!-- Dark/Light mode anchor targets (pure CSS method) -->
-    
-    <?php include 'header.inc'; ?>
+    <a id="dark"></a>
+    <a id="light"></a>
+   <header>
+        <nav class="navbar">
+            <div class="brand-area">
+              <a href="index.php">
+                <img src="images/logo.png" alt="NexCare Logo" class="logo-img"></a>
+                <div>
+                    <p class="brand-name">NexCare Galactic Services</p>
+                    <p class="brand-slogan">Delivering care across the Andromeda Galaxy.</p>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="jobs.php">Jobs</a></li>
+                <li><a href="apply.php">Apply</a></li>
+                            <li>
+                    <a class="theme-switch switch-to-dark"  href="#dark">🌙 Dark Mode</a>
+                    <a class="theme-switch switch-to-light" href="#light">☀️ Light Mode</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
     <div class="applyhero">
       <h1>Apply</h1>
@@ -45,11 +67,8 @@
           <input
             class="apply-fields"
             type="text"
-            pattern="[A-Za-z0-9]{5}"
             name="jobRef"
             id="jobRef"
-            maxlength="5"
-            size="10"
             required="required">
         </div>
         <br>
@@ -59,11 +78,8 @@
           <input
             class="apply-fields"
             type="text"
-            pattern="[A-Za-z]{1,20}"
             name="firstName"
             id="firstName"
-            maxlength="20"
-            size="25"
             required="required">
         </div>
 
@@ -72,11 +88,8 @@
           <input
             class="apply-fields"
             type="text"
-            pattern="[A-Za-z]{1,20}"
             name="lastName"
             id="lastName"
-            maxlength="20"
-            size="25"
             required="required">
         </div>
 
@@ -125,8 +138,6 @@
             type="text"
             name="streetAddress"
             id="streetAddress"
-            maxlength="40"
-            size="40"
             required="required">
         </div>
         <div class="apply-element">
@@ -136,8 +147,6 @@
             type="text"
             name="suburb"
             id="suburb"
-            maxlength="40"
-            size="40"
             required="required">
         </div>
 
@@ -161,11 +170,8 @@
           <input
             class="apply-fields"
             type="text"
-            pattern="\d{4}"
             name="postcode"
             id="postcode"
-            size="4"
-            maxlength="4"
             required="required">
         </div>
 
@@ -174,10 +180,8 @@
           <input
             class="apply-fields"
             type="text"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]{2,}\.[a-z]{2,}$"
             name="email"
             id="email"
-            size="20"
             required="required">
         </div>
         <div class="apply-element">
@@ -185,11 +189,8 @@
           <input
             class="apply-fields"
             type="text"
-            pattern="\d{8,12}"
             name="phone"
             id="phone"
-            maxlength="12"
-            size="12"
             placeholder="0400000000"
             required="required">
         </div>
@@ -246,7 +247,13 @@
       </div>
     </form>
    
-    <?php include 'footer.inc'; ?>
-    
+    <footer>
+        <div class="footer-links">
+            <a href="https://atlassian.net">Mission Status (Jira)</a> |
+            <a href="https://github.com">Ship Code (GitHub)</a> |
+            <a href="mailto:106499895@student.swin.edu.au">Contact (support@nexcare.galaxy)</a>
+        </div>
+        <p style="opacity: 0.85;">&copy; 2026 NexCare Galactic. Milky Way Federation Approved.</p>
+    </footer>
 </body>
 </html>
