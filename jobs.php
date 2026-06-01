@@ -97,7 +97,7 @@ if ($conn) {
 }
 ?>
 
-    <div class="jobs-page">
+    <div class="jobs-page" style="overflow: hidden; min-height: 100px; margin-bottom: 50px;">
     <main>
         <aside class="sidebar">
             <h3>Quick Links</h3>
