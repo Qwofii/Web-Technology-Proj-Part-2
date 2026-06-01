@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2026 at 07:58 AM
+-- Generation Time: Jun 01, 2026 at 12:39 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -20,31 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `nexcare_db`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `about`
---
-
-CREATE TABLE `about` (
-  `member_id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `project1_contribution` varchar(255) NOT NULL,
-  `project2_contribution` varchar(255) NOT NULL,
-  `quote` varchar(255) NOT NULL,
-  `quote_translation` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `about`
---
-
-INSERT INTO `about` (`member_id`, `name`, `project1_contribution`, `project2_contribution`, `quote`, `quote_translation`) VALUES
-(1, 'Sinan', 'Designed and developed the user interface of the about page', 'Developed the about.php dynamic page and about table', 'zinky zoogle zeep vorp beep beep', 'Be sure to take every risk. Embrace your inner alien.'),
-(2, 'Sophia', 'Designed and developed the user interface of the jobs page', 'Developed the jobs.php dynamic page and jobs table', 'Fais de ta vie un rêve et d un rêve une réalité.', 'Make of your life a dream and of a dream a reality.'),
-(3, 'Aadi', 'Designed and developed the user interface of the application page', 'Developed the login page and users table', 'Wort Wort Wort.', 'Go! Go! Go!'),
-(4, 'Sarvesh', 'Designed and developed the user interface of the index page', 'Developed the index.php and header/footer includes', 'zip zorp zep zarp zip zurp.', 'Only through hard work can many things be accomplished.');
 
 -- --------------------------------------------------------
 
@@ -102,6 +77,34 @@ INSERT INTO `jobs` (`job_id`, `ref_number`, `title`, `summary`, `work_type`, `lo
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `members`
+--
+
+CREATE TABLE `members` (
+  `member_id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `proj1_contribution` varchar(255) DEFAULT NULL,
+  `proj2_contribution` varchar(255) DEFAULT NULL,
+  `quote` varchar(255) NOT NULL,
+  `quote_translation` varchar(255) NOT NULL,
+  `dream_job` varchar(100) DEFAULT NULL,
+  `coding_snack` varchar(100) DEFAULT NULL,
+  `hometown` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `members`
+--
+
+INSERT INTO `members` (`member_id`, `name`, `proj1_contribution`, `proj2_contribution`, `quote`, `quote_translation`, `dream_job`, `coding_snack`, `hometown`) VALUES
+(1, 'Sinan', 'Designed and developed the user interface of the about page', 'Developed the about.php dynamic page and about table', 'zinky zoogle zeep vorp beep beep', 'Be sure to take every risk. Embrace your inner alien.', 'Intergalactic Typographer', 'Belgian Chocolate', 'Melbourne, Australia'),
+(2, 'Sophia', 'Designed and developed the user interface of the jobs page', 'Developed the jobs.php dynamic page and jobs table', 'Fais de ta vie un rêve et d un rêve une réalité.', 'Make of your life a dream and of a dream a reality.', 'Alien Interpreter', 'Something Crunchy', 'Melbourne, Australia'),
+(3, 'Aadi', 'Designed and developed the user interface of the application page', 'Developed the login page and users table', 'Wort Wort Wort.', 'Go! Go! Go!', 'Game Development Coding', 'Something Sweet', 'Melbourne, Australia'),
+(4, 'Sarvesh', 'Designed and developed the user interface of the index page', 'Developed the index.php and header/footer includes', 'zip zorp zep zarp zip zurp.', 'Only through hard work can many things be accomplished.', 'Independent Entrepreneur', 'Doritos', 'Xorblborb');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -123,12 +126,6 @@ INSERT INTO `users` (`user_id`, `username`, `password`) VALUES
 --
 
 --
--- Indexes for table `about`
---
-ALTER TABLE `about`
-  ADD PRIMARY KEY (`member_id`);
-
---
 -- Indexes for table `eoi`
 --
 ALTER TABLE `eoi`
@@ -139,6 +136,12 @@ ALTER TABLE `eoi`
 --
 ALTER TABLE `jobs`
   ADD PRIMARY KEY (`job_id`);
+
+--
+-- Indexes for table `members`
+--
+ALTER TABLE `members`
+  ADD PRIMARY KEY (`member_id`);
 
 --
 -- Indexes for table `users`
@@ -152,12 +155,6 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `about`
---
-ALTER TABLE `about`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
 -- AUTO_INCREMENT for table `eoi`
 --
 ALTER TABLE `eoi`
@@ -168,6 +165,12 @@ ALTER TABLE `eoi`
 --
 ALTER TABLE `jobs`
   MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `members`
+--
+ALTER TABLE `members`
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`

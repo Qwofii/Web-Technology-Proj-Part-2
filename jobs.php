@@ -53,8 +53,7 @@ if ($conn) {
 
       if (!$result) {
         die("Query failed: " . mysqli_error($conn));
-    }
-        
+    }    
     while ($job = mysqli_fetch_assoc($result)) {
         //Converts JSON text back to index arrays, assistance from AI
         $responsibilities = json_decode($job['responsibilities'], true);
