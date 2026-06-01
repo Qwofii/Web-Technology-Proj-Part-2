@@ -1,3 +1,45 @@
+/* ============================================
+   THEME VARIABLES (Light Mode Default)
+   ============================================ */
+:root {
+  --bg-primary: #f9fbfc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f3f4;
+  --bg-table-header: #f1f8f4;
+  --bg-card: #ffffff;
+  
+  --text-primary: #2c3e50;
+  --text-secondary: #4b5563;
+  --text-brand: #1a5c36;
+  --text-muted: #7f8c8d;
+  
+  --border-color: #edf2f7;
+  --input-border: #ccc;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+}
+
+/* ============================================
+   PURE CSS DARK MODE TRIGGER
+   Switches variables when the hidden checkbox is checked
+   ============================================ */
+#theme-checkbox:checked ~ *,
+#theme-checkbox:checked ~ body {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-tertiary: #2a2a2a;
+  --bg-table-header: #1a2e22;
+  --bg-card: #1e1e1e;
+  
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --text-brand: #4ade80;
+  --text-muted: #9ca3af;
+  
+  --border-color: #2d3748;
+  --input-border: #4a5568;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
 /* General Layout */
 * {
   margin: 0;
@@ -7,20 +49,57 @@
 }
 
 body {
-  background-color: #f9fbfc;
-  color: #2c3e50;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hide the technical checkbox completely */
+#theme-checkbox {
+  display: none;
+}
+
+/* Pure CSS Toggle Design styled like a button */
+.theme-toggle-btn {
+  border: 1px solid var(--text-brand);
+  color: var(--text-primary);
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--bg-tertiary);
+  transform: scale(1.05);
+}
+
+/* Pure CSS Icon/Text Swap Logic */
+.theme-toggle-btn .sun-icon,
+#theme-checkbox:checked + header .theme-toggle-btn .moon-icon {
+  display: none;
+}
+
+#theme-checkbox:checked + header .theme-toggle-btn .sun-icon {
+  display: inline;
 }
 
 /* Header & Navigation */
 header {
-  background: #ffffff;
+  background: var(--bg-secondary);
   border-bottom: 4px solid #27ae60;
   padding: 10px 5%;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 5px var(--shadow-color);
+  transition: background-color 0.3s;
 }
 
 .navbar {
@@ -40,27 +119,15 @@ header {
   height: 50px;
   width: auto;
 }
-.logo-placeholder {
-  width: 45px;
-  height: 45px;
-  background: #27ae60;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  border-radius: 50%;
-  margin-right: 15px;
-}
+
 .brand-name {
   font-size: 1.3rem;
-color: #1a5c36; /* Contrast Fix */
+  color: var(--text-brand);
 }
-
 
 .brand-slogan {
   font-size: 0.75rem;
- color: #4b5563; /* Darkened from #7f8c8d for contrast */
+  color: var(--text-secondary);
   font-style: italic;
 }
 
@@ -68,6 +135,7 @@ color: #1a5c36; /* Contrast Fix */
   display: flex;
   list-style: none;
   gap: 20px;
+  align-items: center;
 }
 
 .nav-links li {
@@ -75,7 +143,7 @@ color: #1a5c36; /* Contrast Fix */
 }
 .nav-links a {
   text-decoration: none;
-  color: #2c3e50;
+  color: var(--text-primary);
   font-weight: bold;
 }
 
@@ -91,13 +159,14 @@ color: #1a5c36; /* Contrast Fix */
 .nav-links a:hover::after {
   width: 100%;
 }
+
 /* Hero Banner */
 .hero-banner {
   background-image:
     linear-gradient(rgba(44, 62, 80, 0.7), rgba(39, 174, 96, 0.7)),
     url(../images/content.png);
   background-size: cover;
-  background-position: center;/* Sinan: "had to use AI to help with background-position"*/
+  background-position: center;
   background-repeat: no-repeat;
   min-height: 400px;
   display: flex;
@@ -108,32 +177,14 @@ color: #1a5c36; /* Contrast Fix */
   text-align: center;
 }
 
-.hero-banner-about {
-  background-image:
-    linear-gradient(rgba(44, 62, 80, 0.7), rgba(39, 174, 96, 0.7)),
-    url(../images/aboutus.png);
-  background-size: cover;
-  background-position: 10% 90%;
-  color: white;
-  padding: 40px 10%;
-  text-align: center;
-  min-height: 490px;
-  justify-content: center;
-  align-items: center;
-  /* Animation */
-  position: relative;
-  overflow: hidden;
-}
-
 /* Search Box */
 .search-container {
   margin-top: 25px;
   display: inline-block;
-  background: white;
+  background: var(--bg-secondary);
   padding: 5px;
   border-radius: 50px;
 }
-/* Search Box Accessibility */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -151,6 +202,8 @@ color: #1a5c36; /* Contrast Fix */
   border: none;
   border-radius: 50px 0 0 50px;
   outline: none;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 .search-container button {
@@ -172,82 +225,43 @@ color: #1a5c36; /* Contrast Fix */
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  background: white;
+  background: var(--bg-secondary);
 }
 
 .product-table th,
 .product-table td {
-  border: 1px solid #edf2f7;
+  border: 1px solid var(--border-color);
   padding: 18px;
   text-align: left;
 }
 
 .product-table th {
-  background-color: #f1f8f4;
-  color: #1a5c36; /* Contrast Fix */
+  background-color: var(--bg-table-header);
+  color: var(--text-brand);
 }
 
 .category-cell {
-  background-color: #f9f9f9;
+  background-color: var(--bg-primary);
   font-weight: bold;
   text-align: center;
 }
 
 aside.sidebar {
-   float: right;
-    width: 250px;
-    margin: 2rem;
-    padding: 1.5rem;
-    background: #ffffff;
-    border: 1px solid #ddd;
-    border-left: 6px solid #27ae60;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  float: right;
+  width: 25%;
+  margin: 3rem;
+  padding: 1rem;
+  border: 1px solid var(--text-brand);
+  background: var(--bg-secondary);
 }
 
-  aside.sidebar h3 {
-    color: #1a5c36;
-    margin-bottom: 10px;
-    margin-top: 15px;
-}
-
-aside.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-aside.sidebar a {
-    color: #27ae60;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-aside.sidebar a:hover {
-    text-decoration: underline;
-}
-
-h1-white {
-  color: #feffff;
-  margin-bottom: 20px;
-}
-
-h3-jobs {
-  color: #1a5c36;
-  margin-top: 30px;
-  margin-bottom: 15px;
-}
-
-/* Footer Section - Updated Background */
+/* Footer Section */
 footer {
-  background: #2c3e50; /* Charcoal/Navy from your image */
-  color: #ffffff; /* Text changed to white for readability */
+  background: #2c3e50; 
+  color: #ffffff; 
   padding: 40px 10%;
   margin-top: 50px;
   text-align: center;
-}
-
-.footer-links {
-  margin-bottom: 15px;
 }
 
 .footer-links a {
@@ -256,63 +270,29 @@ footer {
   margin: 0 5px;
 }
 
-footer p {
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
 /* Apply page CSS styling*/
-
 .applyhero {
-  /* 1. Hero banner on apply page settings*/
   background-image: linear-gradient(rgb(68, 95, 123), rgb(44, 196, 107));
-  opacity: 100;
-
-  /* 2. Positioning Rules */
-  background-size: cover; /* Scales image to fill the entire section */
-  background-position: center; /* Keeps the middle of the photo visible */
-  background-repeat: no-repeat; /* Prevents the image from tiling */
-
-  /* 3. Sizing the Container */
-  min-height: 50%; /* Ensures the section is tall enough to see the graphic */
-  display: flex; /* Centers your text and search box */
+  min-height: 150px; 
+  display: flex; 
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white; /* Makes text white to pop against the dark background */
-
-  z-index: 1000;
-  position: sticky;
-  top: 11%;
+  color: white; 
 }
 
 .apply-sections {
-  /* 1. Colour settings for apply section titles */
-  background-color: #f1f3f4;
-
-  /* 2. Positioning Rules */
-  background-size: cover; /* Scales image to fill the entire section */
-  background-position: center; /* Keeps the middle of the photo visible */
-  background-repeat: no-repeat; /* Prevents the image from tiling */
-
-  /* 3. Sizing the Container */
-  min-height: 10%; /* Ensures the section is tall enough to see the graphic */
-  display: flex; /* Centers your text */
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #2c3e50; /* text colour */
-
-  z-index: 999; /* forward positioning of each title section */
-  position: sticky;
-  top: 17%; /* determines how much of the top is visible due to scrolling up/down */
+  background-color: var(--bg-tertiary);
+  padding: 10px;
+  text-align: center;
+  color: var(--text-primary); 
 }
 
 dl {
-  background: white;
+  background: var(--bg-secondary);
   padding: 25px;
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 6px var(--shadow-color);
   margin-top: 30px;
 }
 
@@ -322,161 +302,64 @@ dt {
   margin-top: 15px;
 }
 
-dd {
-  margin-left: 20px;
-  margin-bottom: 10px;
-}
-
-.apply-fields {
-  /* Settings for input fields on apply page */
-
+.apply-fields, textarea {
   width: 100%;
   padding: 12px;
   margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
+  border: 1px solid var(--input-border);
   border-radius: 4px;
-  box-sizing: border-box;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.apply-element {
-  /* Settings for groups of apply page elemets- title and field typically */
-
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto;
-  padding: 10px;
-}
-
-.apply-container {
-  /* Settings for overall sections on apply page */
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: auto auto auto;
-  padding: 10px;
-}
-
-textarea {
-  /* settings for display of textarea*/
-
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.apply-buttons {
-  /* Settings for buttons on apply page */
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-figure {
-  margin: 40px auto;
-  text-align: center;
-}
-
-figure img {
-  width: 60%;
-  max-width: 400px;
-  border-radius: 10px;
-  background: #dfe6e9;
-  padding: 20px;
-}
-
-figcaption {
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: #7f8c8d;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 25px;
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-th,
-td {
-  border: 1px solid #edf2f7;
-  padding: 15px;
-  text-align: left;
-}
-
-th {
-  background-color: #f1f8f4;
-  color: #27ae60;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-}
-
-caption {
-  caption-side: top;
-  font-weight: bold;
-  color: #27ae60;
-  margin-bottom: 10px;
-}
-
-.job-container {
-  display: grid;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-  align-items: stretch;
-  row-gap: 5px;
-  gap: 2rem;
- 
-}
-
-.jobs-page{
-    flex-wrap: wrap;
-    align-content: center;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 .job-card {
-  flex: 1;
-  border: 1px solid #ddd;
-  border-left: 6px solid #27ae60;
-  padding: 2rem;
-  border-radius: 10px;
-  margin: 20px 10%;
-  background: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05)
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  background: var(--bg-card);
+  margin-bottom: 20px;
+  border-radius: 8px;
+
+  
 }
 
-.job-tag {
-  display: inline-block;
-  background-color: #1a5c36;
-  color: #d4edda;
-  padding: 3px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  margin-bottom: 12px;
+/* ============================================
+   DARK / LIGHT MODE — Pure CSS anchor-target method
+   Works across pages because the #dark / #light fragment
+   is stored in the URL and re-applied on every navigation.
+   ============================================ */
+
+/* Default (light) variable values */
+:root {
+  --bg:            #f9fbfc;
+  --bg-nav:        #ffffff;
+  --bg-card:       #ffffff;
+  --bg-input:      #ffffff;
+  --bg-th:         #f1f8f4;
+  --text:          #2c3e50;
+  --text-brand:    #1a5c36;
+  --text-muted:    #4b5563;
+  --text-accent:   #27ae60;
+  --border:        #edf2f7;
+  --input-border:  #cccccc;
+  --shadow:        rgba(0,0,0,0.05);
+  --apply-section-bg: #f1f3f4;
 }
 
-
-.copyright {
-  font-size: 0.85rem;
-  opacity: 0.7;
-}
-.acknowledgement {
-  max-width: 800px;
-  margin: 0 auto 30px auto;
-  font-size: 0.95rem;
-  line-height: 1.8;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding-bottom: 25px;
+/* Dark variable overrides — triggered when #dark is the URL target */
+:root:has(#dark:target) {
+  --bg:            #121212;
+  --bg-nav:        #1e1e1e;
+  --bg-card:       #1e1e1e;
+  --bg-input:      #2a2a2a;
+  --bg-th:         #1a3a26;
+  --text:          #e0e0e0;
+  --text-brand:    #4ade80;
+  --text-muted:    #9ca3af;
+  --text-accent:   #4ade80;
+  --border:        #333333;
+  --input-border:  #555555;
+  --shadow:        rgba(0,0,0,0.35);
+  --apply-section-bg: #1e1e1e;
 }
 
 .login-container {
@@ -527,3 +410,111 @@ caption {
     margin-bottom: 15px;
 }
 
+/* Apply variables to elements */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+  background: var(--bg-nav);
+  transition: background-color 0.3s;
+}
+
+.brand-name  { color: var(--text-brand); }
+.brand-slogan { color: var(--text-muted); }
+
+.nav-links a { color: var(--text); }
+
+.catalog-section { background-color: var(--bg); }
+
+h2, h3, li, dd, p, strong, label { color: var(--text); }
+
+dt { color: var(--text-accent); }
+
+dl {
+  background: var(--bg-card);
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+table {
+  background: var(--bg-card);
+}
+th {
+  background-color: var(--bg-th);
+  color: var(--text-brand);
+  border-color: var(--border);
+}
+td { border-color: var(--border); color: var(--text); }
+caption { color: var(--text-accent); }
+
+.product-table  { background: var(--bg-card); }
+.product-table th { background-color: var(--bg-th); color: var(--text-brand); }
+.product-table td { border-color: var(--border); color: var(--text); }
+.category-cell { background-color: var(--bg); color: var(--text); }
+
+.apply-fields,
+textarea,
+select.apply-fields {
+  background: var(--bg-input);
+  color: var(--text);
+  border-color: var(--input-border);
+}
+
+.apply-sections {
+  background-color: var(--apply-section-bg);
+  color: var(--text);
+}
+
+.job-card {
+  background: var(--bg-card);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+aside.sidebar {
+  background: var(--bg-card);
+  border-color: var(--text-brand);
+}
+aside.sidebar h3,
+aside.sidebar p,
+aside.sidebar a { color: var(--text); }
+
+figcaption { color: var(--text-muted); }
+
+/* ---- The hidden anchor targets (zero size, invisible) ---- */
+#dark, #light {
+  display: block;
+  position: absolute;
+  visibility: hidden;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+
+/* ---- Toggle button styling ---- */
+.theme-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px;
+  border-radius: 20px;
+  border: 1.5px solid var(--text-brand);
+  background: transparent;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.theme-switch:hover { opacity: 0.75; }
+
+/* Show "Go Dark" link in light mode, hide it in dark mode */
+.switch-to-dark  { display: inline-flex; }
+.switch-to-light { display: none; }
+
+:root:has(#dark:target) .switch-to-dark  { display: none; }
+:root:has(#dark:target) .switch-to-light { display: inline-flex; }
