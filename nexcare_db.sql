@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2026 at 04:33 AM
+-- Generation Time: Jun 01, 2026 at 07:58 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `nexcare_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about`
+--
+
+CREATE TABLE `about` (
+  `member_id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `project1_contribution` varchar(255) NOT NULL,
+  `project2_contribution` varchar(255) NOT NULL,
+  `quote` varchar(255) NOT NULL,
+  `quote_translation` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `about`
+--
+
+INSERT INTO `about` (`member_id`, `name`, `project1_contribution`, `project2_contribution`, `quote`, `quote_translation`) VALUES
+(1, 'Sinan', 'Designed and developed the user interface of the about page', 'Developed the about.php dynamic page and about table', 'zinky zoogle zeep vorp beep beep', 'Be sure to take every risk. Embrace your inner alien.'),
+(2, 'Sophia', 'Designed and developed the user interface of the jobs page', 'Developed the jobs.php dynamic page and jobs table', 'Fais de ta vie un rêve et d un rêve une réalité.', 'Make of your life a dream and of a dream a reality.'),
+(3, 'Aadi', 'Designed and developed the user interface of the application page', 'Developed the login page and users table', 'Wort Wort Wort.', 'Go! Go! Go!'),
+(4, 'Sarvesh', 'Designed and developed the user interface of the index page', 'Developed the index.php and header/footer includes', 'zip zorp zep zarp zip zurp.', 'Only through hard work can many things be accomplished.');
 
 -- --------------------------------------------------------
 
@@ -98,6 +123,12 @@ INSERT INTO `users` (`user_id`, `username`, `password`) VALUES
 --
 
 --
+-- Indexes for table `about`
+--
+ALTER TABLE `about`
+  ADD PRIMARY KEY (`member_id`);
+
+--
 -- Indexes for table `eoi`
 --
 ALTER TABLE `eoi`
@@ -119,6 +150,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `about`
+--
+ALTER TABLE `about`
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `eoi`
