@@ -2,20 +2,20 @@
    THEME VARIABLES (Light Mode Default)
    ============================================ */
 :root {
-  --bg-primary: #f9fbfc;
+  --bg-primary: #f4f7f2;
   --bg-secondary: #ffffff;
-  --bg-tertiary: #f1f3f4;
-  --bg-table-header: #f1f8f4;
+  --bg-tertiary: #e8f0e4;
+  --bg-table-header: #d4e8cc;
   --bg-card: #ffffff;
   
-  --text-primary: #2c3e50;
-  --text-secondary: #4b5563;
+  --text-primary: #1a2e1c;
+  --text-secondary: #4a6352;
   --text-brand: #1a5c36;
-  --text-muted: #7f8c8d;
+  --text-muted: #3d5244;           /* darkened for WCAG AA contrast on white */
   
-  --border-color: #edf2f7;
-  --input-border: #ccc;
-  --shadow-color: rgba(0, 0, 0, 0.05);
+  --border-color: #c3d9bb;
+  --input-border: #8fad84;
+  --shadow-color: rgba(20,60,30,0.12);
 }
 
 /* ============================================
@@ -24,20 +24,20 @@
    ============================================ */
 #theme-checkbox:checked ~ *,
 #theme-checkbox:checked ~ body {
-  --bg-primary: #121212;
-  --bg-secondary: #1e1e1e;
-  --bg-tertiary: #2a2a2a;
-  --bg-table-header: #1a2e22;
-  --bg-card: #1e1e1e;
+  --bg-primary: #090d1a;
+  --bg-secondary: #0e1528;
+  --bg-tertiary: #131c33;
+  --bg-table-header: #1a1f40;
+  --bg-card: #0e1528;
   
-  --text-primary: #e0e0e0;
-  --text-secondary: #b0b0b0;
-  --text-brand: #4ade80;
-  --text-muted: #9ca3af;
+  --text-primary: #e8eaf6;
+  --text-secondary: #94a3c8;
+  --text-brand: #a78bfa;
+  --text-muted: #94a3c8;
   
-  --border-color: #2d3748;
-  --input-border: #4a5568;
-  --shadow-color: rgba(0, 0, 0, 0.3);
+  --border-color: #2a3360;
+  --input-border: #3d4f8a;
+  --shadow-color: rgba(0, 0, 0, 0.55);
 }
 
 /* General Layout */
@@ -92,7 +92,7 @@ body {
 
 /* Header & Navigation */
 header {
-  background: var(--bg-secondary);
+  background: #1b3a22;
   border-bottom: 4px solid #27ae60;
   padding: 10px 5%;
   position: sticky;
@@ -100,6 +100,11 @@ header {
   z-index: 1000;
   box-shadow: 0 2px 5px var(--shadow-color);
   transition: background-color 0.3s;
+}
+
+:root:has(#dark:target) header {
+  background: #050810;
+  border-bottom-color: #5b21b6;
 }
 
 .navbar {
@@ -122,13 +127,17 @@ header {
 
 .brand-name {
   font-size: 1.3rem;
-  color: var(--text-brand);
+  color: #f0f7ed;
 }
 
 .brand-slogan {
   font-size: 0.75rem;
-  color: var(--text-secondary);
+  color: #99c4a8;
   font-style: italic;
+}
+
+:root:has(#dark:target) .brand-slogan {
+  color: #7a8fcc;
 }
 
 .nav-links {
@@ -143,8 +152,12 @@ header {
 }
 .nav-links a {
   text-decoration: none;
-  color: var(--text-primary);
+  color: #f0f7ed;
   font-weight: bold;
+}
+
+:root:has(#dark:target) .nav-links a {
+  color: #cdd8f8;
 }
 
 .nav-links a::after {
@@ -152,8 +165,12 @@ header {
   display: block;
   width: 0;
   height: 2px;
-  background: #27ae60;
+  background: #56d688;
   transition: width 0.3s;
+}
+
+:root:has(#dark:target) .nav-links a::after {
+  background: #67e8f9;
 }
 
 .nav-links a:hover::after {
@@ -163,7 +180,7 @@ header {
 /* Hero Banner */
 .hero-banner {
   background-image:
-    linear-gradient(rgba(44, 62, 80, 0.7), rgba(39, 174, 96, 0.7)),
+    linear-gradient(160deg, rgba(15,40,20,0.78) 0%, rgba(39,120,70,0.65) 100%),
     url(../images/content.png);
   background-size: cover;
   background-position: center;
@@ -173,17 +190,44 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: #ffffff;
   text-align: center;
+}
+
+/* Force ALL text inside hero banners to white for contrast — overrides broad h2/h3/p rules */
+.hero-banner h1,
+.hero-banner h2,
+.hero-banner h3,
+.hero-banner p,
+.hero-banner li,
+.hero-banner label,
+.hero-banner strong {
+  color: #ffffff !important;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+}
+
+.applyhero h1,
+.applyhero h2,
+.applyhero h3,
+.applyhero p {
+  color: #ffffff !important;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+}
+
+:root:has(#dark:target) .hero-banner {
+  background-image:
+    linear-gradient(160deg, rgba(5,8,20,0.85) 0%, rgba(60,30,110,0.70) 100%),
+    url(../images/content.png);
 }
 
 /* Search Box */
 .search-container {
   margin-top: 25px;
   display: inline-block;
-  background: var(--bg-secondary);
+  background: rgba(255,255,255,0.12);
   padding: 5px;
   border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.25);
 }
 .sr-only {
   position: absolute;
@@ -202,18 +246,27 @@ header {
   border: none;
   border-radius: 50px 0 0 50px;
   outline: none;
-  background: var(--bg-secondary);
-  color: var(--text-primary);
+  background: rgba(255,255,255,0.9);
+  color: #1a2e1c;
 }
 
 .search-container button {
   padding: 12px 30px;
-  background: #2c3e50;
+  background: #1a5c36;
   color: white;
   border: none;
   border-radius: 50px;
   cursor: pointer;
   font-weight: bold;
+}
+
+.search-container button:hover { background: #27ae60; }
+
+:root:has(#dark:target) .search-container button {
+  background: #5b21b6;
+}
+:root:has(#dark:target) .search-container button:hover {
+  background: #7c3aed;
 }
 
 /* Content & Table */
@@ -251,37 +304,57 @@ aside.sidebar {
     width: 250px;
     margin: 2rem;
     padding: 1.5rem;
-    background: #ffffff;
-    border: 1px solid #ddd;
-    border-left: 6px solid #27ae60;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-left: 6px solid #2d8a4e;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+:root:has(#dark:target) aside.sidebar {
+  border-left-color: #67e8f9;
 }
 
 /* Footer Section */
 footer {
-  background: #2c3e50; 
-  color: #ffffff; 
+  background: #0f2415;
+  color: #c8e6cc;
   padding: 40px 10%;
   margin-top: 50px;
   text-align: center;
 }
 
+:root:has(#dark:target) footer {
+  background: #020408;
+  color: #94a3c8;
+}
+
 .footer-links a {
-  color: #ffffff;
+  color: #c8e6cc;
   text-decoration: underline;
   margin: 0 5px;
 }
 
+:root:has(#dark:target) .footer-links a {
+  color: #94a3c8;
+}
+
+.footer-links a:hover { color: #56d688; }
+:root:has(#dark:target) .footer-links a:hover { color: #a78bfa; }
+
 /* Apply page CSS styling*/
 .applyhero {
-  background-image: linear-gradient(rgb(68, 95, 123), rgb(44, 196, 107));
+  background: linear-gradient(135deg, #0f3820 0%, #27ae60 60%, #56d688 100%);
   min-height: 150px; 
   display: flex; 
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white; 
+}
+
+:root:has(#dark:target) .applyhero {
+  background: linear-gradient(135deg, #050810 0%, #3b1d8a 60%, #5b21b6 100%);
 }
 
 .apply-sections {
@@ -301,8 +374,12 @@ dl {
 
 dt {
   font-weight: bold;
-  color: #27ae60;
+  color: #1a5c36;  /* darkened from #27ae60 — passes WCAG AA on white */
   margin-top: 15px;
+}
+
+:root:has(#dark:target) dt {
+  color: #67e8f9;
 }
 
 .apply-fields, textarea {
@@ -322,13 +399,17 @@ dt {
 }
 
 .job-card {
-    border: 1px solid #ddd;
-    border-left: 6px solid #27ae60;
+    border: 1px solid var(--border-color);
+    border-left: 6px solid #2d8a4e;
     border-radius: 10px;
     padding: 2rem;
     margin-bottom: 30px;
     background: var(--bg-card);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+:root:has(#dark:target) .job-card {
+  border-left-color: #67e8f9;
 }
 
 .job-card h2 {
@@ -336,10 +417,18 @@ dt {
     margin-bottom: 5px;
 }
 
+:root:has(#dark:target) .job-card h2 {
+  color: #a78bfa;
+}
+
 .job-card h3 {
-    color: #27ae60;
+    color: #1a5c36;  /* darkened from #27ae60 for WCAG AA */
     margin-top: 20px;
     margin-bottom: 8px;
+}
+
+:root:has(#dark:target) .job-card h3 {
+  color: #67e8f9;
 }
 
 .job-tag {
@@ -352,44 +441,47 @@ dt {
     margin-bottom: 12px;
 }
 
+:root:has(#dark:target) .job-tag {
+  background-color: #3b1d8a;
+  color: #d4b9ff;
+}
+
 /* ============================================
    DARK / LIGHT MODE — Pure CSS anchor-target method
-   Works across pages because the #dark / #light fragment
-   is stored in the URL and re-applied on every navigation.
    ============================================ */
 
 /* Default (light) variable values */
 :root {
-  --bg:            #f9fbfc;
-  --bg-nav:        #ffffff;
+  --bg:            #f4f7f2;
+  --bg-nav:        #1b3a22;
   --bg-card:       #ffffff;
-  --bg-input:      #ffffff;
-  --bg-th:         #f1f8f4;
-  --text:          #2c3e50;
+  --bg-input:      #f9fbf7;
+  --bg-th:         #d4e8cc;
+  --text:          #1a2e1c;
   --text-brand:    #1a5c36;
-  --text-muted:    #4b5563;
-  --text-accent:   #27ae60;
-  --border:        #edf2f7;
-  --input-border:  #cccccc;
-  --shadow:        rgba(0,0,0,0.05);
-  --apply-section-bg: #f1f3f4;
+  --text-muted:    #3d5244;
+  --text-accent:   #1a6b3c;        /* darkened for WCAG AA */
+  --border:        #c3d9bb;
+  --input-border:  #8fad84;
+  --shadow:        rgba(20,60,30,0.12);
+  --apply-section-bg: #e8f0e4;
 }
 
-/* Dark variable overrides — triggered when #dark is the URL target */
+/* Dark variable overrides */
 :root:has(#dark:target) {
-  --bg:            #121212;
-  --bg-nav:        #1e1e1e;
-  --bg-card:       #1e1e1e;
-  --bg-input:      #2a2a2a;
-  --bg-th:         #1a3a26;
-  --text:          #e0e0e0;
-  --text-brand:    #4ade80;
-  --text-muted:    #9ca3af;
-  --text-accent:   #4ade80;
-  --border:        #333333;
-  --input-border:  #555555;
-  --shadow:        rgba(0,0,0,0.35);
-  --apply-section-bg: #1e1e1e;
+  --bg:            #090d1a;
+  --bg-nav:        #050810;
+  --bg-card:       #0e1528;
+  --bg-input:      #111827;
+  --bg-th:         #1a1f40;
+  --text:          #e8eaf6;
+  --text-brand:    #a78bfa;
+  --text-muted:    #94a3c8;
+  --text-accent:   #67e8f9;
+  --border:        #2a3360;
+  --input-border:  #3d4f8a;
+  --shadow:        rgba(0,0,0,0.55);
+  --apply-section-bg: #111827;
 }
 
 /* Apply variables to elements */
@@ -404,17 +496,15 @@ header {
   transition: background-color 0.3s;
 }
 
-.brand-name  { color: var(--text-brand); }
-.brand-slogan { color: var(--text-muted); }
+.brand-name  { color: #f0f7ed; }
+.brand-slogan { color: #99c4a8; } /* always light — nav bg is always dark */
 
-.nav-links a { color: var(--text); }
+.nav-links a { color: #f0f7ed; }
+:root:has(#dark:target) .nav-links a { color: #cdd8f8; }
 
 .catalog-section { background-color: var(--bg); }
 
 h2, h3, li, dd, p, strong, label { color: var(--text); }
-
-.job-card h2 { color: #1a5c36; }
-.job-card h3 { color: #27ae60; }
 
 dt { color: var(--text-accent); }
 
@@ -460,7 +550,7 @@ select.apply-fields {
 
 aside.sidebar {
   background: var(--bg-card);
-  border-color: var(--text-brand);
+  border-color: var(--border);
 }
 aside.sidebar h3,
 aside.sidebar p,
@@ -485,9 +575,9 @@ figcaption { color: var(--text-muted); }
   gap: 7px;
   padding: 7px 16px;
   border-radius: 20px;
-  border: 1.5px solid var(--text-brand);
-  background: transparent;
-  color: var(--text);
+  border: 1.5px solid #56d688;
+  background: rgba(39,120,70,0.15);
+  color: #d4f5e2;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -495,7 +585,19 @@ figcaption { color: var(--text-muted); }
   white-space: nowrap;
   transition: opacity 0.2s;
 }
-.theme-switch:hover { opacity: 0.75; }
+.theme-switch:hover {
+  background: rgba(39,120,70,0.30);
+  opacity: 0.75;
+}
+
+:root:has(#dark:target) .theme-switch {
+  border-color: #a78bfa;
+  background: rgba(91,33,182,0.20);
+  color: #d4b9ff;
+}
+:root:has(#dark:target) .theme-switch:hover {
+  background: rgba(91,33,182,0.35);
+}
 
 /* Show "Go Dark" link in light mode, hide it in dark mode */
 .switch-to-dark  { display: inline-flex; }
@@ -509,10 +611,14 @@ figcaption { color: var(--text-muted); }
     margin: 60px auto;
     padding: 2rem;
     background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-left: 6px solid #27ae60;
+    border: 1px solid var(--border);
+    border-left: 6px solid #2d8a4e;
     border-radius: 10px;
-    box-shadow: 0 2px 8px var(--shadow-color);
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+:root:has(#dark:target) .login-container {
+  border-left-color: #67e8f9;
 }
 
 .login-container h2 {
@@ -520,11 +626,15 @@ figcaption { color: var(--text-muted); }
     margin-bottom: 20px;
 }
 
+:root:has(#dark:target) .login-container h2 {
+  color: #a78bfa;
+}
+
 .login-container label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: var(--text-primary);
+    color: var(--text);
 }
 
 .login-container input {
@@ -533,8 +643,8 @@ figcaption { color: var(--text-muted); }
     margin-bottom: 15px;
     border: 1px solid var(--input-border);
     border-radius: 4px;
-    background: var(--bg-card);
-    color: var(--text-primary);
+    background: var(--bg-input);
+    color: var(--text);
 }
 
 .login-container button {
@@ -548,8 +658,21 @@ figcaption { color: var(--text-muted); }
     font-weight: bold;
 }
 
+:root:has(#dark:target) .login-container button {
+  background: #5b21b6;
+  color: #f3f0ff;
+}
+
 .error-msg {
-    color: red;
+    color: #c0392b;
     text-align: center;
     margin-bottom: 15px;
+    background: #fdecea;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+:root:has(#dark:target) .error-msg {
+  color: #ff8a80;
+  background: rgba(192,57,43,0.18);
 }
