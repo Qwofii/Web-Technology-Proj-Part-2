@@ -667,6 +667,7 @@ figcaption { color: var(--text-muted); }
     color: #c0392b;
     text-align: center;
     margin-bottom: 15px;
+<<<<<<< HEAD
     background: #fdecea;
     border-radius: 6px;
     padding: 10px;
@@ -676,3 +677,6 @@ figcaption { color: var(--text-muted); }
   color: #ff8a80;
   background: rgba(192,57,43,0.18);
 }
+=======
+}
+>>>>>>> d77314f8b19199503acea10387c6fdcac817b8f0

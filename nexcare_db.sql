@@ -109,18 +109,22 @@ INSERT INTO `members` (`member_id`, `name`, `proj1_contribution`, `proj2_contrib
 --
 
 CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `id` int(11) NOT NULL,
+  `firstName` varchar(50) NOT NULL,
+  `lastName` varchar(50) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password`) VALUES
-(1, 'admin', 'admin');
-
+INSERT INTO `users` (`id`, `firstName`, `lastName`, `email`, `username`, `password`, `role`) VALUES
+(1, 'admin', 'admin', 'admin', 'admin', '$2y$10$0Twt3TpQTj/nLVmd7aeJQ.rrD2pAvzAlOUelg8HFwF.yh1OnusuSS', 'manager'),
+(14, 'user', 'user', 'user', 'user', '$2y$10$XZMfSxKUh7tZyFSpFoJwSesm8rN4h95Iv1Y8Q28PSRMqvFmDoYv5.', 'user');
 --
 -- Indexes for dumped tables
 --
@@ -130,6 +134,7 @@ INSERT INTO `users` (`user_id`, `username`, `password`) VALUES
 --
 ALTER TABLE `eoi`
   ADD PRIMARY KEY (`EOInumber`);
+  ADD KEY `fk_userID` (`userID`);
 
 --
 -- Indexes for table `jobs`
@@ -179,6 +184,9 @@ ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
+ALTER TABLE `eoi`
+  ADD CONSTRAINT `fk_userID` FOREIGN KEY (`userID`) REFERENCES `users` (`id`);
+COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
